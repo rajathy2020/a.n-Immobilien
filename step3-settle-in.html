@@ -1,0 +1,656 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settle In - Step 3 | A.N Immobilien</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --accent-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --dark-bg: #0a0e27;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --accent-purple: #667eea;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at top, rgba(102, 126, 234, 0.15), transparent 50%);
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: bgMove 20s linear infinite;
+        }
+
+        @keyframes bgMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 14, 39, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--text-primary);
+        }
+
+        .cta-button {
+            padding: 12px 28px;
+            background: var(--primary-gradient);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .page-hero {
+            padding: 160px 40px 80px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .step-badge {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            background: var(--primary-gradient);
+            border-radius: 20px;
+            font-size: 40px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+        }
+
+        .page-hero h1 {
+            font-size: 64px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        .gradient-text {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-hero p {
+            font-size: 22px;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        .services-section {
+            padding: 80px 40px 120px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 48px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(102, 126, 234, 0.3);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: rgba(102, 126, 234, 0.2);
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .service-card h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .service-includes {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-includes li {
+            padding: 10px 0;
+            color: var(--text-secondary);
+            font-size: 15px;
+            display: flex;
+            align-items: start;
+            gap: 12px;
+        }
+
+        .service-includes li::before {
+            content: '✓';
+            color: var(--accent-purple);
+            font-weight: 700;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .deliverables-section {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .deliverables-card {
+            background: var(--primary-gradient);
+            border-radius: 32px;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .deliverables-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: bgMove 20s linear infinite;
+        }
+
+        .deliverables-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .deliverables-card h2 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .deliverables-card p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+        }
+
+        .deliverables-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .deliverable-item {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px 24px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+
+        .deliverable-item::before {
+            content: '✓';
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .timeline-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 24px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 32px;
+        }
+
+        .cta-section {
+            padding: 80px 40px 120px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .btn-secondary {
+            padding: 14px 32px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        footer {
+            padding: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .deliverables-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 42px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .service-card {
+                padding: 32px;
+            }
+
+            .deliverables-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .deliverables-card {
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">A.N Immobilien</a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="step1-find-home.html">Step 1</a>
+                <a href="step2-secure-keys.html">Step 2</a>
+                <a href="step3-settle-in.html">Step 3</a>
+                <a href="index.html#contact" class="cta-button">Get Started</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="step-badge">3</div>
+        <h1>Settle <span class="gradient-text">In</span></h1>
+        <p>Connect with trusted experts and protect your investment—so you can focus on making your new house feel like home.</p>
+        
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-number">10</div>
+                <div class="stat-label">Core Services</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2-4</div>
+                <div class="stat-label">Weeks Setup</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Ongoing Support</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div class="service-number">01</div>
+                <h3>Insurance Assessment</h3>
+                <p>Identify which insurance policies you need to protect your investment.</p>
+                <ul class="service-includes">
+                    <li>Wohngebäudeversicherung (building insurance)</li>
+                    <li>Haftpflichtversicherung (liability insurance)</li>
+                    <li>Hausratversicherung (contents insurance)</li>
+                    <li>Risk assessment for your property type</li>
+                </ul>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div class="service-number">02</div>
+                <h3>Insurance Setup</h3>
+                <p>Compare providers and set up policies at competitive rates.</p>
+                <ul class="service-includes">
+                    <li>Get quotes from 3-5 providers</li>
+                    <li>Side-by-side comparison</li>
+                    <li>Application completion in German</li>
+                    <li>Policy activation and documentation</li>
+                </ul>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div class="service-number">03</div>
+                <h3>Renovation Assessment</h3>
+                <p>Identify what needs to be done and create a priority list with costs.</p>
+                <ul class="service-includes">
+                    <li>Immediate vs. future work identification</li>
+                    <li>Must-have, should-have, nice-to-have lists</li>
+                    <li>Budget estimation by category</li>
+                    <li>Timeline planning</li>
+                </ul>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card">
+                <div class="service-number">04</div>
+                <h3>Contractor Network</h3>
+                <p>Connect with vetted, licensed contractors for all trades.</p>
+                <ul class="service-includes">
+                    <li>3-5 vetted contractors per trade</li>
+                    <li>License and insurance verification</li>
+                    <li>Past client references</li>
+                    <li>Quote request coordination</li>
+                </ul>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service-card">
+                <div class="service-number">05</div>
+                <h3>Quote Review</h3>
+                <p>Help you choose the best contractor and negotiate fair pricing.</p>
+                <ul class="service-includes">
+                    <li>Line-by-line quote analysis</li>
+                    <li>Red flag identification</li>
+                    <li>Negotiation support</li>
+                    <li>Contract review</li>
+                </ul>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="service-card">
+                <div class="service-number">06</div>
+                <h3>Maintenance Education</h3>
+                <p>Learn German homeowner responsibilities and seasonal routines.</p>
+                <ul class="service-includes">
+                    <li>Lüften (proper ventilation) to prevent mold</li>
+                    <li>Heating system operation</li>
+                    <li>Winterdienst (snow removal obligations)</li>
+                    <li>Seasonal maintenance checklist</li>
+                </ul>
+            </div>
+
+            <!-- Service 7 -->
+            <div class="service-card">
+                <div class="service-number">07</div>
+                <h3>Service Provider Contacts</h3>
+                <p>Key contacts for homeowners and emergency services.</p>
+                <ul class="service-includes">
+                    <li>Hausmeister, Hausverwaltung contacts</li>
+                    <li>Schornsteinfeger (chimney sweep)</li>
+                    <li>Emergency service numbers</li>
+                    <li>Trusted plumber, electrician, handyman</li>
+                </ul>
+            </div>
+
+            <!-- Service 8 -->
+            <div class="service-card">
+                <div class="service-number">08</div>
+                <h3>WEG Navigation</h3>
+                <p>Understand owners' association culture and meeting participation.</p>
+                <ul class="service-includes">
+                    <li>Hausordnung (house rules) explanation</li>
+                    <li>Eigentümerversammlung participation guide</li>
+                    <li>How to propose changes</li>
+                    <li>Community politics navigation</li>
+                </ul>
+            </div>
+
+            <!-- Service 9 -->
+            <div class="service-card">
+                <div class="service-number">09</div>
+                <h3>Neighborhood Orientation</h3>
+                <p>Custom guide to your new area with all key locations mapped.</p>
+                <ul class="service-includes">
+                    <li>Grocery stores, Indian/Asian markets</li>
+                    <li>Healthcare (English-speaking doctors)</li>
+                    <li>Schools, kindergartens, playgrounds</li>
+                    <li>Cultural centers and transportation</li>
+                </ul>
+            </div>
+
+            <!-- Service 10 -->
+            <div class="service-card">
+                <div class="service-number">10</div>
+                <h3>Community Integration</h3>
+                <p>Connect with the Indian expat community and local networks.</p>
+                <ul class="service-includes">
+                    <li>Indian expat community introductions</li>
+                    <li>Facebook groups and networks</li>
+                    <li>Cultural centers and religious facilities</li>
+                    <li>Local event recommendations</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="deliverables-section">
+        <div class="deliverables-card">
+            <div class="deliverables-content">
+                <h2>What You Get</h2>
+                <p>Everything you need to feel at home and protect your investment</p>
+                <div class="deliverables-grid">
+                    <div class="deliverable-item">Insurance Policies</div>
+                    <div class="deliverable-item">Contractor Referrals</div>
+                    <div class="deliverable-item">Quote Reviews</div>
+                    <div class="deliverable-item">Homeowner's Guide</div>
+                    <div class="deliverable-item">Service Contacts</div>
+                    <div class="deliverable-item">WEG Guide</div>
+                    <div class="deliverable-item">Neighborhood Map</div>
+                    <div class="deliverable-item">Community Resources</div>
+                    <div class="deliverable-item">Maintenance Checklist</div>
+                </div>
+                <div class="timeline-badge">⏱️ Timeline: 2-4 weeks (+ ongoing support)</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2 style="font-size: 48px; font-weight: 800; margin-bottom: 20px;">Ready to Make It Home?</h2>
+        <p style="font-size: 20px; color: var(--text-secondary); margin-bottom: 40px;">Let us connect you with the right people and resources.</p>
+        <div class="cta-buttons">
+            <a href="index.html#contact" class="cta-button" style="padding: 16px 40px; font-size: 16px;">Start Step 3</a>
+            <a href="index.html" class="btn-secondary">← Back to Home</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 A.N Immobilien • <a href="index.html" style="color: var(--accent-purple); text-decoration: none;">Back to Home</a></p>
+    </footer>
+</body>
+</html>

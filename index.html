@@ -767,8 +767,27 @@ function toggleE2E(){
 }
 
 // Form
-document.getElementById('contactForm').addEventListener('submit',function(e){
+document.getElementById('contactForm').addEventListener('submit',async function(e){
   e.preventDefault();
+  const btn=this.querySelector('.form-submit');
+  btn.textContent='Sending...';btn.disabled=true;
+  const checked=[...document.querySelectorAll('input[name="help"]:checked')].map(c=>c.value).join(', ');
+  const data={
+    name:this.querySelector('input[type="text"]').value,
+    email:this.querySelector('input[type="email"]').value,
+    phone:this.querySelector('input[type="tel"]').value,
+    timeline:this.querySelector('select').value,
+    help:checked||'Not specified',
+    message:this.querySelector('textarea').value
+  };
+  try{
+    await fetch('https://script.google.com/macros/s/AKfycbzjrZlmY8pgPUFg6uH9IT8bbERymrwyuk4SuUHvKBhQNeBMPRco9LECHLRk8k9y3ms/exec',{
+      method:'POST',
+      mode:'no-cors',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(data)
+    });
+  }catch(err){console.log('Form error:',err)}
   this.style.display='none';
   document.getElementById('formSuccess').classList.add('show');
 });

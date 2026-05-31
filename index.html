@@ -25,21 +25,8 @@ html{scroll-behavior:smooth}
 body{
   background:var(--black);color:var(--white);
   font-family:var(--sans);font-weight:300;
-  line-height:1.6;overflow-x:hidden;cursor:none;
+  line-height:1.6;overflow-x:hidden;
 }
-.cursor{
-  position:fixed;width:8px;height:8px;background:var(--white);
-  border-radius:50%;pointer-events:none;z-index:9999;
-  transform:translate(-50%,-50%);mix-blend-mode:difference;
-  transition:width .2s,height .2s;
-}
-.cursor-ring{
-  position:fixed;width:36px;height:36px;
-  border:1px solid rgba(245,243,238,0.4);border-radius:50%;
-  pointer-events:none;z-index:9998;transform:translate(-50%,-50%);
-}
-.cursor.expand{width:20px;height:20px}
-.cursor-ring.expand{width:56px;height:56px;border-color:var(--accent)}
 body::before{
   content:'';position:fixed;inset:0;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
@@ -303,15 +290,11 @@ footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:fle
   .e2e-banner{padding:32px 24px}
   footer{flex-direction:column;gap:24px;text-align:center;padding:40px 24px}
   .footer-links{flex-wrap:wrap;justify-content:center}
-  body{cursor:auto}
-  .cursor,.cursor-ring{display:none}
 }
 </style>
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
 
 <header>
   <a href="#" class="logo">A.N<span>.</span> Immobilien</a>
@@ -563,7 +546,7 @@ footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:fle
           <li>Single point of contact throughout</li>
           <li>Priority response within 4 hours</li>
           <li>Trusted network: notaries, brokers, contractors</li>
-          <li>English, Hindi or Telugu — your choice</li>
+          <li>English or Hindi — your choice</li>
         </ul>
       </div>
     </div>
@@ -605,7 +588,7 @@ footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:fle
 <div class="stats reveal">
   <div class="stat"><span class="stat-number">6</span><span class="stat-label">Specialist services</span></div>
   <div class="stat"><span class="stat-number">3</span><span class="stat-label">Clear phases</span></div>
-  <div class="stat"><span class="stat-number">3</span><span class="stat-label">Languages spoken</span></div>
+  <div class="stat"><span class="stat-number">3</span><span class="stat-label">Languages</span></div>
   <div class="stat"><span class="stat-number">100%</span><span class="stat-label">On your side</span></div>
 </div>
 
@@ -625,7 +608,7 @@ footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:fle
     <div class="why-item">
       <span class="why-item-icon">💬</span>
       <h4>Your language</h4>
-      <p>Consultations in English, Hindi, or Telugu. Complex German legal documents explained clearly, without the jargon.</p>
+      <p>Consultations in English or Hindi. Complex German legal documents explained clearly, without the jargon.</p>
     </div>
     <div class="why-item">
       <span class="why-item-icon">🤝</span>
@@ -665,7 +648,7 @@ footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:fle
       </div>
       <div class="contact-detail">
         <span class="contact-detail-label">Languages</span>
-        <span class="contact-detail-value">English · Hindi · Telugu</span>
+        <span class="contact-detail-value">English · Hindi</span>
       </div>
     </div>
     <div class="reveal">
@@ -733,15 +716,7 @@ footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:fle
 </footer>
 
 <script>
-// Cursor
-const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px'});
-(function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
-document.querySelectorAll('a,button,.service-header,.check-item,.why-item,.e2e-banner').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cursor.classList.add('expand');ring.classList.add('expand')});
-  el.addEventListener('mouseleave',()=>{cursor.classList.remove('expand');ring.classList.remove('expand')});
-});
+
 
 // Scroll reveal
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1});

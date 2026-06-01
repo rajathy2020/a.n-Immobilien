@@ -180,17 +180,12 @@ section{padding:120px 60px}
 .e2e-phase-block li::before{content:'—';color:var(--grey-3);flex-shrink:0;margin-top:1px}
 .e2e-expand-btn.open 
 /* Stats */
-.stats{
-  background:var(--grey-1);padding:60px;
-  display:grid;grid-template-columns:repeat(4,1fr);
-  border-top:1px solid rgba(245,243,238,0.08);
-  border-bottom:1px solid rgba(245,243,238,0.08);
-}
-.stat{padding:0 40px;border-right:1px solid rgba(245,243,238,0.08);text-align:center}
-.stat:first-child{padding-left:0}
-.stat:last-child{border-right:none}
-.stat-number{font-family:var(--serif);font-size:52px;font-weight:300;color:var(--white);line-height:1;display:block;margin-bottom:8px}
-.stat-label{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey-4)}
+
+
+
+
+
+
 
 /* Why */
 .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(245,243,238,0.08);margin-top:60px;border:1px solid rgba(245,243,238,0.08)}
@@ -269,8 +264,8 @@ footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:fle
   .phases{grid-template-columns:1fr}
   .phase{border-right:none;border-bottom:1px solid rgba(245,243,238,0.08)}
   .phase:last-child{border-bottom:none}
-  .stats{grid-template-columns:1fr 1fr;padding:40px 24px}
-  .stat{padding:20px}
+  
+  
   .why-grid{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr;gap:48px}
   .form-row{grid-template-columns:1fr}
@@ -334,10 +329,6 @@ footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:fle
             <span class="service-price">€99</span>
           </div>
           <span class="service-question">"How do I find the right property without wasting months?"</span>
-          <div class="service-meta">
-            <span class="service-tag essential">Essential</span>
-            <span class="service-toggle">+</span>
-          </div>
         </div>
         <div class="service-body">
           <div class="service-body-inner">
@@ -370,10 +361,6 @@ footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:fle
             <span class="service-price">€199</span>
           </div>
           <span class="service-question">"Is this property worth what they're asking?"</span>
-          <div class="service-meta">
-            <span class="service-tag essential">Essential</span>
-            <span class="service-toggle">+</span>
-          </div>
         </div>
         <div class="service-body">
           <div class="service-body-inner">
@@ -398,10 +385,6 @@ footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:fle
             <span class="service-price">€199</span>
           </div>
           <span class="service-question">"Can I actually get a mortgage for this?"</span>
-          <div class="service-meta">
-            <span class="service-tag">Optional</span>
-            <span class="service-toggle">+</span>
-          </div>
         </div>
         <div class="service-body">
           <div class="service-body-inner">
@@ -425,10 +408,6 @@ footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:fle
             <span class="service-price">€499</span>
           </div>
           <span class="service-question">"Are there any hidden risks I should know about?"</span>
-          <div class="service-meta">
-            <span class="service-tag essential">Essential</span>
-            <span class="service-toggle">+</span>
-          </div>
         </div>
         <div class="service-body">
           <div class="service-body-inner">
@@ -453,10 +432,6 @@ footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:fle
             <span class="service-price">€299</span>
           </div>
           <span class="service-question">"What will it cost to make this liveable?"</span>
-          <div class="service-meta">
-            <span class="service-tag">Optional</span>
-            <span class="service-toggle">+</span>
-          </div>
         </div>
         <div class="service-body">
           <div class="service-body-inner">
@@ -488,10 +463,6 @@ footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:fle
             <span class="service-price">€499</span>
           </div>
           <span class="service-question">"Can someone handle the paperwork and closing for me?"</span>
-          <div class="service-meta">
-            <span class="service-tag">Optional</span>
-            <span class="service-toggle">+</span>
-          </div>
         </div>
         <div class="service-body">
           <div class="service-body-inner">
@@ -562,15 +533,6 @@ footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:fle
 
 <hr class="divider">
 
-<div class="stats reveal">
-  <div class="stat"><span class="stat-number">6</span><span class="stat-label">Specialist services</span></div>
-  <div class="stat"><span class="stat-number">3</span><span class="stat-label">Clear phases</span></div>
-  <div class="stat"><span class="stat-number">3</span><span class="stat-label">Languages</span></div>
-  <div class="stat"><span class="stat-number">100%</span><span class="stat-label">On your side</span></div>
-</div>
-
-<hr class="divider">
-
 <section id="why">
   <div class="reveal">
     <span class="section-label">Why choose us</span>
@@ -626,6 +588,10 @@ footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:fle
       <div class="contact-detail">
         <span class="contact-detail-label">Languages</span>
         <span class="contact-detail-value">English · Hindi</span>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-detail-label">Instagram</span>
+        <span class="contact-detail-value"><a href="https://www.instagram.com/a.n.immobilien/" target="_blank">@a.n.immobilien</a></span>
       </div>
     </div>
     <div class="reveal">
@@ -688,6 +654,7 @@ footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:fle
     <a href="#journey">Services</a>
     <a href="#why">About</a>
     <a href="#contact">Contact</a>
+    <a href="https://www.instagram.com/a.n.immobilien/" target="_blank">Instagram</a>
   </div>
   <div class="footer-copy">© 2026 A.N Immobilien · Berlin</div>
 </footer>

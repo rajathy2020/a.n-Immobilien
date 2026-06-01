@@ -162,33 +162,23 @@ section{padding:120px 60px}
   background:linear-gradient(90deg,transparent,var(--accent),transparent);
 }
 .e2e-tag{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:block}
-.e2e-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;align-items:start}
-.e2e-main h3{font-family:var(--serif);font-size:32px;font-weight:300;line-height:1.2;margin-bottom:12px}
-.e2e-main h3 em{font-style:italic;color:var(--accent)}
-.e2e-main p{font-size:14px;color:var(--grey-4);line-height:1.7;margin-bottom:24px}
-.e2e-price{font-family:var(--sans);font-size:44px;font-weight:300;color:var(--white);letter-spacing:-.02em}
-.e2e-price-label{font-size:12px;color:var(--grey-4);letter-spacing:.05em;margin-top:4px}
-.e2e-includes{list-style:none;padding:0}
-.e2e-includes li{font-size:13px;color:var(--grey-4);padding:10px 0;border-bottom:1px solid rgba(245,243,238,0.06);display:flex;gap:12px}
-.e2e-includes li:last-child{border-bottom:none}
-.e2e-includes li::before{content:'→';color:var(--accent);flex-shrink:0}
-.e2e-toggle-detail{display:none;margin-top:32px;padding-top:32px;border-top:1px solid rgba(245,243,238,0.08)}
-.e2e-toggle-detail.show{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px}
-.e2e-phase-block h5{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.e2e-top-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:40px}
+.e2e-title{font-family:var(--serif);font-size:32px;font-weight:300;line-height:1.2;margin:12px 0 8px}
+.e2e-title em{font-style:italic;color:var(--accent)}
+.e2e-subtitle{font-size:14px;color:var(--grey-4);line-height:1.7;max-width:400px}
+.e2e-price-corner{text-align:right;flex-shrink:0;padding-left:40px;border-left:1px solid rgba(245,243,238,0.08);margin-left:40px}
+.e2e-price{font-family:var(--sans);font-size:13px;font-weight:400;color:var(--grey-4);display:block;letter-spacing:.05em}
+.e2e-price-amount{font-family:var(--serif);font-size:22px;font-weight:300;color:var(--white);display:block;margin-top:4px}
+.e2e-price-label{font-size:10px;color:var(--grey-3);letter-spacing:.1em;text-transform:uppercase;display:block;margin-top:2px}
+.e2e-phases-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid rgba(245,243,238,0.08);padding-top:32px}
+.e2e-phases-grid .e2e-phase-block{padding:0 32px;border-right:1px solid rgba(245,243,238,0.08)}
+.e2e-phases-grid .e2e-phase-block:first-child{padding-left:0}
+.e2e-phases-grid .e2e-phase-block:last-child{border-right:none}
+.e2e-phase-block h5{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
 .e2e-phase-block ul{list-style:none;padding:0}
-.e2e-phase-block li{font-size:13px;color:var(--grey-4);padding:6px 0;border-bottom:1px solid rgba(245,243,238,0.05);display:flex;gap:8px}
-.e2e-phase-block li::before{content:'—';color:var(--grey-3);flex-shrink:0}
-.e2e-expand-btn{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:12px;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--accent);border:1px solid rgba(200,184,154,0.25);
-  padding:10px 20px;transition:background .3s;cursor:pointer;
-  background:transparent;font-family:var(--sans);
-}
-.e2e-expand-btn:hover{background:rgba(200,184,154,0.08)}
-.e2e-expand-icon{transition:transform .3s;display:inline-block;font-style:normal}
-.e2e-expand-btn.open .e2e-expand-icon{transform:rotate(45deg)}
-
+.e2e-phase-block li{font-size:13px;color:var(--grey-4);padding:8px 0;border-bottom:1px solid rgba(245,243,238,0.05);display:flex;gap:10px;line-height:1.5}
+.e2e-phase-block li::before{content:'—';color:var(--grey-3);flex-shrink:0;margin-top:1px}
+.e2e-expand-btn.open 
 /* Stats */
 .stats{
   background:var(--grey-1);padding:60px;
@@ -268,8 +258,7 @@ footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:fle
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
 @media(max-width:1024px){
-  .e2e-grid{grid-template-columns:1fr 1fr}
-  .e2e-toggle-detail.show{grid-template-columns:1fr}
+    .e2e-toggle-detail.show{grid-template-columns:1fr}
 }
 @media(max-width:900px){
   header{padding:20px 24px}
@@ -285,8 +274,7 @@ footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:fle
   .why-grid{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr;gap:48px}
   .form-row{grid-template-columns:1fr}
-  .e2e-grid{grid-template-columns:1fr}
-  .e2e-toggle-detail.show{grid-template-columns:1fr}
+    .e2e-toggle-detail.show{grid-template-columns:1fr}
   .e2e-banner{padding:32px 24px}
   footer{flex-direction:column;gap:24px;text-align:center;padding:40px 24px}
   .footer-links{flex-wrap:wrap;justify-content:center}
@@ -525,56 +513,45 @@ footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:fle
 
   <!-- End-to-End Banner -->
   <div class="e2e-banner reveal" id="e2eBanner">
-    <span class="e2e-tag">Full journey · Most popular</span>
-    <div class="e2e-grid">
-      <div class="e2e-main">
-        <h3>End-to-end.<br><em>We handle everything.</em></h3>
-        <p>From your very first property search to collecting your keys — we manage the entire journey. One point of contact, complete peace of mind.</p>
-        <button class="e2e-expand-btn" id="e2eBtn" onclick="toggleE2E()">
-          <span>See what's included</span>
-          <em class="e2e-expand-icon">+</em>
-        </button>
-      </div>
+    <div class="e2e-top-row">
       <div>
-        <div class="e2e-price">€999</div>
-        <div class="e2e-price-label">Full journey, all phases</div>
-        <a href="#contact" class="service-cta" style="margin-top:24px;display:inline-block">Start End-to-End →</a>
+        <span class="e2e-tag">Full journey · Most popular</span>
+        <h3 class="e2e-title">End-to-end.<br><em>We handle everything.</em></h3>
+        <p class="e2e-subtitle">From first search to final signature — one point of contact, every step handled.</p>
       </div>
-      <div>
-        <ul class="e2e-includes">
-          <li>Everything in Find, Evaluate &amp; Close</li>
-          <li>Single point of contact throughout</li>
-          <li>Priority response within 4 hours</li>
-          <li>Trusted network: notaries, brokers, contractors</li>
-          <li>English or Hindi — your choice</li>
-        </ul>
+      <div class="e2e-price-corner">
+        <span class="e2e-price">Starting from</span>
+        <span class="e2e-price-amount">€999</span>
+        <span class="e2e-price-label">full journey</span>
+        <a href="#contact" class="service-cta" style="display:inline-block;margin-top:16px">Get started →</a>
       </div>
     </div>
-
-    <div class="e2e-toggle-detail" id="e2eDetail">
+    <div class="e2e-phases-grid">
       <div class="e2e-phase-block">
-        <h5>Phase 1 — Find</h5>
+        <h5>01 — Find</h5>
         <ul>
-          <li>Questionnaire &amp; 60-min intro call</li>
+          <li>Questionnaire to map your exact needs</li>
+          <li>60-min intro call to align on criteria</li>
           <li>3 rounds of 5 shortlisted properties</li>
-          <li>Criteria refinement after every round</li>
-          <li>Data breakdown per property</li>
+          <li>Full data breakdown per property</li>
+          <li>Criteria refinement call after every round</li>
         </ul>
       </div>
       <div class="e2e-phase-block">
-        <h5>Phase 2 — Evaluate</h5>
+        <h5>02 — Evaluate</h5>
         <ul>
-          <li>Price evaluation report</li>
-          <li>Financing assessment &amp; broker intro</li>
-          <li>Full due diligence on chosen property</li>
-          <li>Renovation assessment if needed</li>
+          <li>Price evaluation report with offer recommendation</li>
+          <li>Financing assessment &amp; broker introduction</li>
+          <li>Full due diligence on your chosen property</li>
+          <li>Renovation assessment with cost breakdown</li>
         </ul>
       </div>
       <div class="e2e-phase-block">
-        <h5>Phase 3 — Close</h5>
+        <h5>03 — Close</h5>
         <ul>
-          <li>Offer &amp; negotiation support</li>
-          <li>Notary &amp; contract coordination</li>
+          <li>Offer submission &amp; negotiation support</li>
+          <li>Notary appointment coordination</li>
+          <li>Purchase contract review</li>
           <li>Grundbuch transfer tracking</li>
           <li>Key handover &amp; move-in checklist</li>
         </ul>
@@ -640,7 +617,7 @@ footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:fle
       </div>
       <div class="contact-detail">
         <span class="contact-detail-label">Phone</span>
-        <span class="contact-detail-value">+49 170 123 45678</span>
+        <span class="contact-detail-value">+49 176 31400029</span>
       </div>
       <div class="contact-detail">
         <span class="contact-detail-label">Based in</span>
@@ -731,15 +708,7 @@ function toggleService(id){
   if(!isOpen)el.classList.add('open');
 }
 
-// E2E expand
-function toggleE2E(){
-  const detail=document.getElementById('e2eDetail');
-  const btn=document.getElementById('e2eBtn');
-  const isShow=detail.classList.contains('show');
-  detail.classList.toggle('show',!isShow);
-  btn.classList.toggle('open',!isShow);
-  btn.querySelector('span').textContent=isShow?'See what\'s included':'Hide details';
-}
+
 
 // Form
 document.getElementById('contactForm').addEventListener('submit',async function(e){

@@ -6,592 +6,547 @@
 <title>A.N Immobilien — Property Consulting for Indian Expats in Germany</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Instrument+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --black:#080808;
-  --white:#f5f3ee;
-  --grey-1:#1a1a1a;
-  --grey-2:#2a2a2a;
-  --grey-3:#444;
-  --grey-4:#888;
-  --grey-5:#bbb;
-  --accent:#c8b89a;
-  --serif:'Cormorant Garamond',Georgia,serif;
-  --sans:'DM Sans',system-ui,sans-serif;
+  --bg:#2d0a0a;
+  --bg2:#3d1010;
+  --white:#f7f0f0;
+  --black:#f5eeee;
+  --grey-1:#f0e4e4;
+  --grey-2:#d4b8b8;
+  --grey-3:#b08080;
+  --grey-4:#7a5050;
+  --grey-5:#4a2828;
+  --gold:#e8a0a0;
+  --gold-light:#c06060;
+  --gold-bg:#3d1818;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Instrument Sans',system-ui,sans-serif;
+  --radius:16px;
 }
 html{scroll-behavior:smooth}
-body{
-  background:var(--black);color:var(--white);
-  font-family:var(--sans);font-weight:300;
-  line-height:1.6;overflow-x:hidden;
-}
-body::before{
-  content:'';position:fixed;inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events:none;z-index:1000;opacity:.6;
-}
+body{background:var(--bg);color:var(--black);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:hidden}
 
-/* Header */
+/* ── HEADER ── */
 header{
   position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:28px 60px;display:flex;justify-content:space-between;align-items:center;
-  border-bottom:1px solid rgba(245,243,238,0.06);
-  background:rgba(8,8,8,0.88);backdrop-filter:blur(12px);
+  padding:0 60px;height:72px;
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(74,16,32,0.94);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(0,0,0,0.06);
 }
-.logo{font-family:var(--serif);font-size:22px;font-weight:400;letter-spacing:.04em;color:var(--white);text-decoration:none}
-.logo span{color:var(--accent)}
-nav{display:flex;gap:40px;align-items:center}
-nav a{font-size:13px;font-weight:400;letter-spacing:.08em;color:var(--grey-4);text-decoration:none;text-transform:uppercase;transition:color .3s}
-nav a:hover{color:var(--white)}
-.nav-cta{padding:10px 24px;border:1px solid rgba(245,243,238,0.2);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--white);text-decoration:none;transition:background .3s,border-color .3s}
-.nav-cta:hover{background:var(--white);color:var(--black)}
+.logo{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--black);text-decoration:none;letter-spacing:0.02em}
+.logo span{color:var(--gold)}
+nav{display:flex;gap:36px;align-items:center}
+nav a{font-size:13px;font-weight:400;letter-spacing:0.06em;color:var(--grey-3);text-decoration:none;text-transform:uppercase;transition:color .25s}
+nav a:hover{color:var(--black)}
+.nav-cta{
+  padding:10px 22px;background:var(--gold);color:#1a0a0a;
+  font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
+  text-decoration:none;font-weight:600;border-radius:100px;
+  transition:background .25s,transform .2s;
+}
+.nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
 
-/* Hero */
+/* ── HERO ── */
 .hero{
-  min-height:100vh;display:flex;flex-direction:column;
-  justify-content:flex-end;padding:0 60px 80px;position:relative;overflow:hidden;
+  min-height:100vh;padding:140px 60px 100px;
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;
+  align-items:center;position:relative;overflow:hidden;
 }
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(200,184,154,0.06) 0%,transparent 70%)}
-.hero-line{
-  position:absolute;inset:0;
-  background:repeating-linear-gradient(90deg,transparent,transparent calc(100%/12 - 1px),rgba(255,255,255,0.025) calc(100%/12 - 1px),rgba(255,255,255,0.025) calc(100%/12));
+.hero-bg-circle{
+  position:absolute;top:-200px;right:-200px;
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(192,96,96,0.15) 0%,transparent 70%);
   pointer-events:none;
 }
-.hero-eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:32px;opacity:0;animation:fadeUp .8s .2s forwards}
-.hero h1{font-family:var(--serif);font-size:clamp(52px,8vw,108px);font-weight:300;line-height:1.0;letter-spacing:-.02em;max-width:900px;opacity:0;animation:fadeUp .8s .4s forwards}
-.hero h1 em{font-style:italic;color:var(--accent)}
-.hero-sub{margin-top:40px;max-width:480px;font-size:16px;color:var(--grey-4);line-height:1.7;opacity:0;animation:fadeUp .8s .6s forwards}
-.hero-actions{margin-top:48px;display:flex;gap:20px;align-items:center;opacity:0;animation:fadeUp .8s .8s forwards}
-.btn-primary{padding:16px 40px;background:var(--white);color:var(--black);font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;font-weight:500;transition:background .3s,transform .2s;display:inline-block}
-.btn-primary:hover{background:var(--accent);transform:translateY(-2px)}
-.btn-ghost{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey-4);text-decoration:none;border-bottom:1px solid var(--grey-3);padding-bottom:2px;transition:color .3s,border-color .3s}
-.btn-ghost:hover{color:var(--white);border-color:var(--white)}
-.hero-scroll{position:absolute;bottom:40px;right:60px;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--grey-3);writing-mode:vertical-rl;display:flex;align-items:center;gap:12px;opacity:0;animation:fadeUp .8s 1.2s forwards}
-.hero-scroll::before{content:'';display:block;width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--grey-3))}
+.hero-eyebrow{
+  font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:28px;display:flex;align-items:center;gap:12px;
+  opacity:0;animation:fadeUp .7s .1s forwards;
+}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold)}
+.hero h1{
+  font-family:var(--serif);font-size:clamp(48px,6vw,88px);
+  font-weight:300;line-height:1.05;letter-spacing:-0.02em;
+  margin-bottom:28px;opacity:0;animation:fadeUp .7s .25s forwards;
+}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{
+  font-size:17px;color:var(--grey-3);line-height:1.75;
+  max-width:420px;margin-bottom:44px;
+  opacity:0;animation:fadeUp .7s .4s forwards;
+}
+.hero-actions{
+  display:flex;gap:16px;align-items:center;
+  opacity:0;animation:fadeUp .7s .55s forwards;
+}
+.btn-dark{
+  padding:15px 36px;background:var(--gold);color:#1a0a0a;
+  font-size:13px;letter-spacing:0.07em;text-transform:uppercase;
+  text-decoration:none;font-weight:600;border-radius:100px;
+  transition:background .25s,transform .2s,box-shadow .25s;display:inline-block;
+  box-shadow:0 4px 20px rgba(232,160,160,0.3);
+}
+.btn-dark:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 6px 28px rgba(232,160,160,0.4)}
+.btn-outline{
+  padding:15px 36px;border:1.5px solid rgba(0,0,0,0.15);color:var(--grey-2);
+  font-size:13px;letter-spacing:0.07em;text-transform:uppercase;
+  text-decoration:none;font-weight:400;border-radius:100px;
+  transition:border-color .25s,color .25s;display:inline-block;
+}
+.btn-outline:hover{border-color:var(--black);color:var(--black)}
 
-/* Shared */
-section{padding:120px 60px}
-.section-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:block}
-.section-title{font-family:var(--serif);font-size:clamp(36px,5vw,64px);font-weight:300;line-height:1.1;letter-spacing:-.01em}
-.section-title em{font-style:italic;color:var(--grey-4)}
-.divider{height:1px;background:rgba(245,243,238,0.08);border:none}
-
-/* Journey */
-.journey-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:80px}
-.journey-intro{max-width:400px;margin-top:24px;font-size:15px;color:var(--grey-4);line-height:1.7}
-
-/* Phases grid */
-.phases{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid rgba(245,243,238,0.08)}
-.phase{padding:48px 40px;border-right:1px solid rgba(245,243,238,0.08);position:relative}
-.phase:last-child{border-right:none}
-.phase-number{font-family:var(--serif);font-size:72px;font-weight:300;color:rgba(245,243,238,0.06);line-height:1;position:absolute;top:32px;right:32px;letter-spacing:-.04em}
-.phase-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:block}
-.phase-title{font-family:var(--serif);font-size:36px;font-weight:300;line-height:1.1;margin-bottom:32px}
-.phase-desc{font-size:14px;color:var(--grey-4);line-height:1.7;margin-bottom:32px}
-
-/* Service cards */
-.service{
-  border-top:1px solid rgba(245,243,238,0.08);
-  overflow:hidden;transition:background .3s;
-}
-.service:hover{background:rgba(245,243,238,0.02)}
-.service-header{
-  padding:20px 0;cursor:pointer;
-  display:flex;flex-direction:column;gap:6px;
-  user-select:none;
-}
-.service-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-.service-name{font-size:15px;font-weight:400;color:var(--grey-5);transition:color .3s;letter-spacing:.01em;flex:1}
-.service.open .service-name{color:var(--white)}
-.service-price{font-family:var(--sans);font-size:15px;font-weight:400;color:var(--grey-5);white-space:nowrap;letter-spacing:.02em}
-.service-question{font-size:13px;color:var(--grey-3);font-style:italic;line-height:1.4;transition:color .3s}
-.service.open .service-question{color:var(--grey-4)}
-.service-meta{display:flex;align-items:center;justify-content:space-between}
-.service-tag{display:inline-block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border:1px solid var(--grey-3);color:var(--grey-4)}
-.service-tag.essential{border-color:rgba(200,184,154,0.3);color:var(--accent)}
-.service-toggle{
-  font-size:18px;color:var(--grey-3);line-height:1;
-  transition:transform .35s,color .3s;
-  flex-shrink:0;
-}
-.service.open .service-toggle{transform:rotate(45deg);color:var(--accent)}
-
-/* Expandable body */
-.service-body{
-  max-height:0;overflow:hidden;
-  transition:max-height .45s cubic-bezier(0.4,0,0.2,1),padding .45s;
-}
-.service.open .service-body{max-height:600px}
-.service-body-inner{
-  padding:0 0 24px;
-  border-top:1px solid rgba(245,243,238,0.06);
-  margin-top:4px;padding-top:20px;
-}
-.service-body-inner p{font-size:13px;color:var(--grey-4);line-height:1.8;margin-bottom:16px}
-.service-includes{list-style:none;padding:0}
-.service-includes li{
-  font-size:13px;color:var(--grey-4);padding:8px 0;
-  border-bottom:1px solid rgba(245,243,238,0.05);
-  display:flex;align-items:flex-start;gap:10px;
-}
-.service-includes li:last-child{border-bottom:none}
-.service-includes li::before{content:'—';color:var(--accent);flex-shrink:0;margin-top:1px}
-.service-cta{
-  display:inline-block;margin-top:16px;
-  font-size:12px;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--accent);border-bottom:1px solid rgba(200,184,154,0.3);
-  padding-bottom:2px;text-decoration:none;cursor:pointer;
-  transition:border-color .3s;
-}
-.service-cta:hover{border-color:var(--accent)}
-
-/* End-to-End banner */
-.e2e-banner{
-  margin-top:48px;
-  border:1px solid rgba(200,184,154,0.2);
-  background:rgba(200,184,154,0.03);
-  padding:48px;
+/* Hero right — floating card */
+.hero-visual{opacity:0;animation:fadeUp .7s .5s forwards}
+.hero-card{
+  background:rgba(255,255,255,0.06);border-radius:24px;
+  padding:40px;box-shadow:0 24px 80px rgba(0,0,0,0.3);
   position:relative;overflow:hidden;
-  cursor:pointer;transition:background .4s;
+  border:1px solid rgba(232,160,160,0.2);
+  backdrop-filter:blur(10px);
 }
-.e2e-banner:hover{background:rgba(200,184,154,0.06)}
-.e2e-banner::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+.hero-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-light));
 }
-.e2e-tag{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:block}
-.e2e-top-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:40px}
-.e2e-title{font-family:var(--serif);font-size:32px;font-weight:300;line-height:1.2;margin:12px 0 8px}
-.e2e-title em{font-style:italic;color:var(--accent)}
-.e2e-subtitle{font-size:14px;color:var(--grey-4);line-height:1.7;max-width:400px}
-.e2e-price-corner{text-align:right;flex-shrink:0;padding-left:40px;border-left:1px solid rgba(245,243,238,0.08);margin-left:40px}
-.e2e-price{font-family:var(--sans);font-size:13px;font-weight:400;color:var(--grey-4);display:block;letter-spacing:.05em}
-.e2e-price-amount{font-family:var(--serif);font-size:22px;font-weight:300;color:var(--white);display:block;margin-top:4px}
-.e2e-price-label{font-size:10px;color:var(--grey-3);letter-spacing:.1em;text-transform:uppercase;display:block;margin-top:2px}
-.e2e-phases-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid rgba(245,243,238,0.08);padding-top:32px}
-.e2e-phases-grid .e2e-phase-block{padding:0 32px;border-right:1px solid rgba(245,243,238,0.08)}
-.e2e-phases-grid .e2e-phase-block:first-child{padding-left:0}
-.e2e-phases-grid .e2e-phase-block:last-child{border-right:none}
-.e2e-phase-block h5{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
-.e2e-phase-block ul{list-style:none;padding:0}
-.e2e-phase-block li{font-size:13px;color:var(--grey-4);padding:8px 0;border-bottom:1px solid rgba(245,243,238,0.05);display:flex;gap:10px;line-height:1.5}
-.e2e-phase-block li::before{content:'—';color:var(--grey-3);flex-shrink:0;margin-top:1px}
-.e2e-expand-btn.open 
-/* Stats */
+.hero-card-label{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;font-weight:500}
+.hero-steps{list-style:none;padding:0}
+.hero-steps li{
+  display:flex;align-items:flex-start;gap:18px;
+  padding:18px 0;border-bottom:1px solid rgba(232,160,160,0.12);
+}
+.hero-steps li:last-child{border-bottom:none}
+.step-dot{
+  width:32px;height:32px;border-radius:50%;
+  background:rgba(232,160,160,0.12);border:1px solid rgba(232,160,160,0.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:600;color:var(--gold);flex-shrink:0;margin-top:2px;
+}
+.step-text strong{display:block;font-size:15px;font-weight:500;color:var(--black);margin-bottom:3px}
+.step-text span{font-size:13px;color:var(--grey-3)}
 
+/* ── SECTION BASE ── */
+section{padding:100px 60px}
+.section-eyebrow{
+  font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px;
+}
+.section-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold)}
+.section-title{
+  font-family:var(--serif);font-size:clamp(32px,4vw,56px);
+  font-weight:300;line-height:1.1;letter-spacing:-0.01em;margin-bottom:16px;
+}
+.section-title em{font-style:italic;color:var(--grey-3)}
+.section-sub{font-size:16px;color:var(--grey-3);max-width:520px;line-height:1.7}
+.divider{height:1px;background:rgba(0,0,0,0.07);border:none;margin:0}
 
+/* ── SERVICES ── */
+.services{background:var(--white)}
+.services-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 
+.svc-card{
+  background:var(--bg);border-radius:var(--radius);
+  padding:36px;border:1.5px solid transparent;
+  transition:border-color .3s,box-shadow .3s,transform .3s;
+  cursor:pointer;position:relative;overflow:hidden;
+}
+.svc-card:hover{
+  border-color:rgba(184,147,62,0.25);
+  box-shadow:0 8px 40px rgba(0,0,0,0.07);
+  transform:translateY(-3px);
+}
+.svc-card.open{
+  border-color:rgba(184,147,62,0.35);
+  background:var(--gold-bg);
+  box-shadow:0 12px 48px rgba(184,147,62,0.12);
+}
+.svc-card.open .svc-step{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--grey-4);margin-bottom:8px}
+.svc-name{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--black);margin-bottom:10px;line-height:1.2}
+.svc-question{font-size:13px;color:var(--grey-3);font-style:italic;line-height:1.5;margin-bottom:20px}
+.svc-footer{display:flex;justify-content:space-between;align-items:center}
+.svc-price{font-size:20px;font-weight:500;color:var(--black);font-family:var(--serif)}
+.svc-toggle{
+  width:32px;height:32px;border-radius:50%;
+  border:1.5px solid rgba(0,0,0,0.12);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:var(--grey-3);
+  transition:all .3s;line-height:1;
+}
+.svc-card.open .svc-toggle{background:var(--gold);border-color:var(--gold);color:var(--white);transform:rotate(45deg)}
 
+/* Expand body */
+.svc-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(0.4,0,0.2,1)}
+.svc-card.open .svc-body{max-height:500px}
+.svc-body-inner{padding-top:20px;border-top:1px solid rgba(0,0,0,0.08);margin-top:20px}
+.svc-desc{font-size:13px;color:var(--grey-2);line-height:1.8;margin-bottom:14px}
+.svc-list{list-style:none;padding:0;margin-bottom:16px}
+.svc-list li{
+  font-size:13px;color:var(--grey-3);padding:6px 0;
+  border-bottom:1px solid rgba(0,0,0,0.05);
+  display:flex;gap:10px;align-items:flex-start;line-height:1.5;
+}
+.svc-list li:last-child{border-bottom:none}
+.svc-list li::before{content:'✓';color:var(--gold);font-size:12px;flex-shrink:0;margin-top:2px;font-weight:600}
+.svc-book{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 20px;background:#4a1020;color:#ffffff;
+  border-radius:100px;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;
+  text-decoration:none;font-weight:600;transition:background .25s,transform .2s;
+}
+.svc-book:hover{background:#3a0c18;transform:translateY(-1px)}
 
+/* ── WHY ── */
+.why{background:var(--bg)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:60px;border-radius:20px;overflow:hidden;border:1px solid rgba(0,0,0,0.06)}
+.why-item{background:var(--white);padding:44px;transition:background .3s}
+.why-item:hover{background:var(--gold-bg)}
+.why-icon{font-size:32px;margin-bottom:20px;display:block}
+.why-item h4{font-family:var(--serif);font-size:22px;font-weight:400;margin-bottom:10px}
+.why-item p{font-size:14px;color:var(--grey-3);line-height:1.75}
 
+/* ── CONTACT ── */
+.contact{background:#fdf8f9}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:64px;align-items:start}
+.contact-info h3{font-family:var(--serif);font-size:26px;font-weight:400;margin-bottom:20px;line-height:1.4;color:#1a0a10}
+.contact-info p{font-size:14px;color:#4a2030;line-height:1.8;margin-bottom:36px}
+.contact-row{padding:18px 0;border-top:1px solid rgba(0,0,0,0.07);display:flex;gap:20px}
+.contact-lbl{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#7a4050;min-width:80px;margin-top:2px}
+.contact-val{font-size:14px;color:#4a1020}
+.contact-val a{color:var(--gold);text-decoration:none}
+.contact-val a:hover{text-decoration:underline}
 
-/* Why */
-.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(245,243,238,0.08);margin-top:60px;border:1px solid rgba(245,243,238,0.08)}
-.why-item{background:var(--black);padding:48px;transition:background .3s}
-.why-item:hover{background:var(--grey-1)}
-.why-item-icon{font-size:28px;margin-bottom:24px;display:block;filter:grayscale(1);transition:filter .3s}
-.why-item:hover .why-item-icon{filter:grayscale(0)}
-.why-item h4{font-family:var(--serif);font-size:24px;font-weight:300;margin-bottom:12px}
-.why-item p{font-size:14px;color:var(--grey-4);line-height:1.7}
-
-/* Contact */
-.contact{background:var(--grey-1)}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:60px;align-items:start}
-.contact-info h3{font-family:var(--serif);font-size:28px;font-weight:300;margin-bottom:20px;line-height:1.3}
-.contact-info p{font-size:14px;color:var(--grey-4);line-height:1.8;margin-bottom:32px}
-.contact-detail{padding:20px 0;border-top:1px solid rgba(245,243,238,0.08);display:flex;gap:16px;align-items:flex-start}
-.contact-detail-label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--grey-4);min-width:80px;margin-top:2px}
-.contact-detail-value{font-size:14px;color:var(--white)}
-.contact-detail-value a{color:var(--accent);text-decoration:none}
-.form-group{margin-bottom:24px}
-.form-label{display:block;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--grey-4);margin-bottom:10px}
+/* Form */
+.form-group{margin-bottom:20px}
+.form-label{display:block;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#4a2030;margin-bottom:8px}
 .form-input,.form-select,.form-textarea{
-  width:100%;padding:14px 0;background:transparent;border:none;
-  border-bottom:1px solid rgba(245,243,238,0.15);
-  color:var(--white);font-family:var(--sans);font-size:15px;font-weight:300;
-  outline:none;transition:border-color .3s;-webkit-appearance:none;
+  width:100%;padding:13px 16px;
+  background:#fdf8f9;border:1.5px solid rgba(74,16,32,0.12);
+  border-radius:10px;color:#1a0a0a;font-family:var(--sans);
+  font-size:14px;font-weight:300;outline:none;transition:border-color .25s,background .25s;
+  -webkit-appearance:none;
 }
-.form-input:focus,.form-select:focus,.form-textarea:focus{border-bottom-color:var(--accent)}
-.form-input::placeholder,.form-textarea::placeholder{color:var(--grey-3)}
-.form-select{cursor:pointer;color:var(--grey-4)}
-.form-select option{background:var(--grey-1);color:var(--white)}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:#4a1020;background:#ffffff}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--grey-5)}
+.form-select{cursor:pointer;color:var(--grey-3)}
+.form-select option{background:var(--white);color:var(--black)}
 .form-textarea{resize:none;min-height:100px;line-height:1.6}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.checkbox-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
-.check-item{display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid rgba(245,243,238,0.1);cursor:pointer;transition:border-color .3s,background .3s}
-.check-item:hover{border-color:rgba(245,243,238,0.25)}
-.check-item input{display:none}
-.check-item:has(input:checked){border-color:rgba(245,243,238,0.3);background:rgba(245,243,238,0.04)}
-.check-box{width:16px;height:16px;flex-shrink:0;border:1px solid var(--grey-3);position:relative;transition:all .2s}
-.check-item:has(input:checked) .check-box{background:var(--white);border-color:var(--white)}
-.check-item:has(input:checked) .check-box::after{opacity:1}
-.check-box::after{content:'';position:absolute;top:3px;left:3px;width:8px;height:8px;background:var(--black);opacity:0;transition:opacity .2s}
-.check-label{font-size:13px;color:var(--grey-4);transition:color .2s}
-.check-item:has(input:checked) .check-label{color:var(--white)}
-.form-submit{width:100%;padding:18px;margin-top:8px;background:var(--white);color:var(--black);border:none;font-family:var(--sans);font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;cursor:pointer;transition:background .3s,transform .2s}
-.form-submit:hover{background:var(--accent);transform:translateY(-2px)}
-.form-note{margin-top:16px;font-size:12px;color:var(--grey-3);text-align:center;letter-spacing:.05em}
-.form-success{display:none;text-align:center;padding:60px 40px}
-.form-success.show{display:block}
-.form-success h3{font-family:var(--serif);font-size:32px;font-weight:300;margin-bottom:16px}
-.form-success p{font-size:14px;color:var(--grey-4)}
-
-/* Footer */
-footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:flex;justify-content:space-between;align-items:center}
-.footer-logo{font-family:var(--serif);font-size:18px;font-weight:300;color:var(--grey-4)}
-.footer-logo span{color:var(--accent)}
-.footer-links{display:flex;gap:32px}
-.footer-links a{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey-3);text-decoration:none;transition:color .3s}
-.footer-links a:hover{color:var(--grey-5)}
-.footer-copy{font-size:12px;color:var(--grey-3)}
-
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
-.reveal.visible{opacity:1;transform:translateY(0)}
-
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-
-@media(max-width:1024px){
-    .e2e-toggle-detail.show{grid-template-columns:1fr}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.checkbox-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+.check-item{
+  display:flex;align-items:center;gap:10px;
+  padding:11px 14px;border:1.5px solid rgba(74,16,32,0.1);
+  border-radius:10px;cursor:pointer;transition:border-color .25s,background .25s;
+  background:#fdf8f9;
 }
-@media(max-width:900px){
-  header{padding:20px 24px}
+.check-item:hover{border-color:rgba(74,16,32,0.3)}
+.check-item input{display:none}
+.check-item:has(input:checked){border-color:#4a1020;background:#f0d0d8}
+.check-box{
+  width:16px;height:16px;flex-shrink:0;
+  border:1.5px solid rgba(0,0,0,0.2);border-radius:4px;
+  position:relative;transition:all .2s;background:var(--white);
+}
+.check-item:has(input:checked) .check-box{background:#4a1020;border-color:#4a1020}
+.check-box::after{
+  content:'✓';position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);font-size:10px;color:var(--white);
+  opacity:0;transition:opacity .2s;font-weight:700;
+}
+.check-item:has(input:checked) .check-box::after{opacity:1}
+.check-label{font-size:13px;color:#2a0a10;font-weight:400}
+.check-item:has(input:checked) .check-label{color:#1a0008;font-weight:600}
+.form-submit{
+  width:100%;padding:16px;margin-top:8px;
+  background:#4a1020;color:#ffffff;border:none;
+  border-radius:100px;font-family:var(--sans);
+  font-size:13px;letter-spacing:0.08em;text-transform:uppercase;
+  font-weight:600;cursor:pointer;transition:background .25s,transform .2s;
+}
+.form-submit:hover{background:#3a0c18;transform:translateY(-1px)}
+.form-note{margin-top:12px;font-size:12px;color:#7a4050;text-align:center}
+.form-success{display:none;text-align:center;padding:60px 20px}
+.form-success.show{display:block}
+.form-success h3{font-family:var(--serif);font-size:30px;font-weight:300;margin-bottom:12px}
+.form-success p{font-size:14px;color:var(--grey-3)}
+
+/* ── FOOTER ── */
+footer{
+  padding:40px 60px;border-top:1px solid rgba(0,0,0,0.07);
+  display:flex;justify-content:space-between;align-items:center;
+  background:var(--white);
+}
+.footer-logo{font-family:var(--serif);font-size:18px;font-weight:300;color:var(--grey-3)}
+.footer-logo span{color:var(--gold)}
+.footer-links{display:flex;gap:28px}
+.footer-links a{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-4);text-decoration:none;transition:color .25s}
+.footer-links a:hover{color:var(--black)}
+.footer-copy{font-size:12px;color:var(--grey-4)}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── MOBILE ── */
+@media(max-width:960px){
+  header{padding:0 24px}
   nav a:not(.nav-cta){display:none}
-  section{padding:80px 24px}
-  .hero{padding:0 24px 60px}
-  .journey-header{flex-direction:column;gap:24px}
-  .phases{grid-template-columns:1fr}
-  .phase{border-right:none;border-bottom:1px solid rgba(245,243,238,0.08)}
-  .phase:last-child{border-bottom:none}
-  
-  
+  .hero{grid-template-columns:1fr;padding:120px 24px 60px;gap:48px}
+  .hero-visual{display:none}
+  section{padding:72px 24px}
+  .services-header{flex-direction:column;gap:20px;align-items:flex-start}
+  .services-grid{grid-template-columns:1fr}
   .why-grid{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr;gap:48px}
   .form-row{grid-template-columns:1fr}
-    .e2e-toggle-detail.show{grid-template-columns:1fr}
-  .e2e-banner{padding:32px 24px}
-  footer{flex-direction:column;gap:24px;text-align:center;padding:40px 24px}
+  .checkbox-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:20px;text-align:center;padding:32px 24px}
   .footer-links{flex-wrap:wrap;justify-content:center}
 }
 </style>
 </head>
 <body>
 
-
 <header>
   <a href="#" class="logo">A.N<span>.</span> Immobilien</a>
   <nav>
-    <a href="#journey">Services</a>
+    <a href="#services">Services</a>
     <a href="#why">About</a>
     <a href="#contact">Contact</a>
     <a href="#contact" class="nav-cta">Get Started</a>
   </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-line"></div>
-  <p class="hero-eyebrow">Property consulting · Berlin · Germany</p>
-  <h1>Your home<br>in Germany.<br><em>Done right.</em></h1>
-  <p class="hero-sub">Expert guidance for Indian expats navigating Germany's property market — from the first search to the final signature.</p>
-  <div class="hero-actions">
-    <a href="#contact" class="btn-primary">Start Your Journey</a>
-    <a href="#journey" class="btn-ghost">See how it works</a>
+  <div class="hero-bg-circle"></div>
+  <div class="hero-left">
+    <p class="hero-eyebrow">Property consulting · Berlin · Germany</p>
+    <h1>Your home<br>in Germany.<br><em>Done right.</em></h1>
+    <p class="hero-sub">Expert guidance for Indian expats navigating Germany's property market — from the first search to the final signature.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-dark">Start Your Journey</a>
+      <a href="#services" class="btn-outline">Our Services</a>
+    </div>
   </div>
-  <div class="hero-scroll">Scroll</div>
+  <div class="hero-visual">
+    <div class="hero-card">
+      <p class="hero-card-label">Your buying journey</p>
+      <ul class="hero-steps">
+        <li>
+          <span class="step-dot">01</span>
+          <div class="step-text"><strong>Find the right property</strong><span>Curated shortlists, no wasted weekends</span></div>
+        </li>
+        <li>
+          <span class="step-dot">02</span>
+          <div class="step-text"><strong>Evaluate thoroughly</strong><span>Price, financing, risks — all checked</span></div>
+        </li>
+        <li>
+          <span class="step-dot">03</span>
+          <div class="step-text"><strong>Close with confidence</strong><span>Notary, contracts, Grundbuch handled</span></div>
+        </li>
+        <li>
+          <span class="step-dot">04</span>
+          <div class="step-text"><strong>Move in ready</strong><span>Renovation assessment & trusted contractors</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <hr class="divider">
 
-<section id="journey">
-  <div class="journey-header reveal">
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header reveal">
     <div>
-      <span class="section-label">How we work</span>
-      <h2 class="section-title">Three phases.<br><em>One clear path.</em></h2>
+      <p class="section-eyebrow">Our services</p>
+      <h2 class="section-title">Six services.<br><em>One clear journey.</em></h2>
     </div>
-    <p class="journey-intro">We've structured the German property buying process into three clear phases. Each service can be booked independently, or follow the full path for complete peace of mind.</p>
+    <p class="section-sub" style="align-self:flex-end">Each service can be booked independently, or follow the full path for complete peace of mind.</p>
   </div>
 
-  <div class="phases reveal">
+  <div class="services-grid">
 
-    <!-- Phase 1: Find -->
-    <div class="phase">
-      <span class="phase-number">01</span>
-      <span class="phase-label">Phase one</span>
-      <h3 class="phase-title">Find</h3>
-      <p class="phase-desc">Stop scrolling through hundreds of listings. We shortlist properties that actually match your needs.</p>
-
-      <div class="service" id="svc-scouting">
-        <div class="service-header" onclick="toggleService('svc-scouting')">
-          <div class="service-top">
-            <span class="service-name">Scouting</span>
-            <span class="service-price">€99</span>
-          </div>
-          <span class="service-question">"How do I find the right property without wasting months?"</span>
-        </div>
-        <div class="service-body">
-          <div class="service-body-inner">
-            <p>We do the searching so you don't have to. After understanding exactly what you need, we deliver three curated rounds of five properties — each with a full data breakdown — refining our search after every round based on your feedback.</p>
-            <ul class="service-includes">
-              <li>In-depth questionnaire to map your exact needs</li>
-              <li>60-minute intro call to align on criteria</li>
-              <li>3 rounds of 5 shortlisted properties</li>
-              <li>Data breakdown per property: price/m², year built, condition, commute, our verdict</li>
-              <li>50-minute criteria refinement call after each round</li>
-              <li>Additional rounds available at €100 each</li>
-            </ul>
-            <a class="service-cta" href="#contact">Book Scouting →</a>
-          </div>
+    <div class="svc-card reveal" id="svc-scouting" onclick="toggleSvc('svc-scouting')">
+      <h3 class="svc-name">Scouting</h3>
+      <p class="svc-question">"How do I find the right property without wasting months?"</p>
+      <div class="svc-footer">
+        <span class="svc-price">€99</span>
+        <span class="svc-toggle">+</span>
+      </div>
+      <div class="svc-body">
+        <div class="svc-body-inner">
+          <p class="svc-desc">We do the searching so you don't have to. Three curated rounds of five properties each, refined after every round based on your feedback.</p>
+          <ul class="svc-list">
+            <li>In-depth questionnaire to map your exact needs</li>
+            <li>60-minute intro call to align on criteria</li>
+            <li>3 rounds of 5 shortlisted properties</li>
+            <li>Data breakdown per property: price/m², year built, condition, commute</li>
+            <li>Criteria refinement call after each round</li>
+            <li>Additional rounds at €100 each</li>
+          </ul>
+          <a class="svc-book" href="#contact">Book Scouting →</a>
         </div>
       </div>
     </div>
 
-    <!-- Phase 2: Evaluate -->
-    <div class="phase">
-      <span class="phase-number">02</span>
-      <span class="phase-label">Phase two</span>
-      <h3 class="phase-title">Evaluate</h3>
-      <p class="phase-desc">Before you make an offer, know exactly what the property is worth and what risks you're taking on.</p>
-
-      <div class="service" id="svc-price">
-        <div class="service-header" onclick="toggleService('svc-price')">
-          <div class="service-top">
-            <span class="service-name">Price evaluation</span>
-            <span class="service-price">€199</span>
-          </div>
-          <span class="service-question">"Is this property worth what they're asking?"</span>
-        </div>
-        <div class="service-body">
-          <div class="service-body-inner">
-            <p>Never make an offer blind. We analyse comparable sales, market trends, and property condition to give you a fair value range and a recommended offer price — with a walk-away ceiling.</p>
-            <ul class="service-includes">
-              <li>Comparable sales analysis (3–5 recent properties)</li>
-              <li>Price per m² benchmark against the postcode</li>
-              <li>Condition adjustment for renovation needs</li>
-              <li>Hausgeld and hidden cost check for apartments</li>
-              <li>Fair value range and recommended offer price</li>
-              <li>One-page written report with your verdict</li>
-            </ul>
-            <a class="service-cta" href="#contact">Book Price Evaluation →</a>
-          </div>
-        </div>
+    <div class="svc-card reveal reveal-delay-1" id="svc-price" onclick="toggleSvc('svc-price')">
+      <h3 class="svc-name">Price Evaluation</h3>
+      <p class="svc-question">"Is this property worth what they're asking?"</p>
+      <div class="svc-footer">
+        <span class="svc-price">€199</span>
+        <span class="svc-toggle">+</span>
       </div>
-
-      <div class="service" id="svc-financing">
-        <div class="service-header" onclick="toggleService('svc-financing')">
-          <div class="service-top">
-            <span class="service-name">Financing assessment</span>
-            <span class="service-price">€199</span>
-          </div>
-          <span class="service-question">"Can I actually get a mortgage for this?"</span>
-        </div>
-        <div class="service-body">
-          <div class="service-body-inner">
-            <p>Before going deep on due diligence, make sure you can finance it. We assess your mortgage readiness and connect you with trusted English-speaking brokers who understand the Indian expat profile.</p>
-            <ul class="service-includes">
-              <li>Review of your income, savings, and financial profile</li>
-              <li>Estimate of borrowing capacity based on German criteria</li>
-              <li>Introduction to 2–3 vetted English-speaking mortgage brokers</li>
-              <li>Guidance on documents German banks typically require</li>
-              <li>Clarity on what to expect from the application process</li>
-            </ul>
-            <a class="service-cta" href="#contact">Book Financing Assessment →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="service" id="svc-diligence">
-        <div class="service-header" onclick="toggleService('svc-diligence')">
-          <div class="service-top">
-            <span class="service-name">Due diligence</span>
-            <span class="service-price">€499</span>
-          </div>
-          <span class="service-question">"Are there any hidden risks I should know about?"</span>
-        </div>
-        <div class="service-body">
-          <div class="service-body-inner">
-            <p>Do this when you're serious about a property. We go through every document, flag every risk, and give you a clear go / no-go before you commit to anything. One property, one thorough report.</p>
-            <ul class="service-includes">
-              <li>Full Grundbuch (land registry) review</li>
-              <li>Teilungserklärung and Eigentümergemeinschaft documents for apartments</li>
-              <li>Check for outstanding debts, liens, or encumbrances</li>
-              <li>Review of meeting minutes for upcoming special assessments</li>
-              <li>Energy certificate and building permit checks</li>
-              <li>Written risk summary with clear go / no-go recommendation</li>
-            </ul>
-            <a class="service-cta" href="#contact">Book Due Diligence →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="service" id="svc-renovation">
-        <div class="service-header" onclick="toggleService('svc-renovation')">
-          <div class="service-top">
-            <span class="service-name">Renovation assessment</span>
-            <span class="service-price">€299</span>
-          </div>
-          <span class="service-question">"What will it cost to make this liveable?"</span>
-        </div>
-        <div class="service-body">
-          <div class="service-body-inner">
-            <p>Know the real cost before you commit. We identify what needs doing, what can wait, and give you a realistic budget — so there are no surprises after you've signed.</p>
-            <ul class="service-includes">
-              <li>Identification of immediate vs. future work</li>
-              <li>Must-have, should-have, nice-to-have priority list</li>
-              <li>Budget estimate by category (kitchen, bathroom, floors, etc.)</li>
-              <li>Rough timeline for works</li>
-              <li>Connections to trusted contractors if needed</li>
-            </ul>
-            <a class="service-cta" href="#contact">Book Renovation Assessment →</a>
-          </div>
+      <div class="svc-body">
+        <div class="svc-body-inner">
+          <p class="svc-desc">Never make an offer blind. We give you a fair value range and recommended offer price — with a walk-away ceiling.</p>
+          <ul class="svc-list">
+            <li>Fair value range and recommended offer price</li>
+            <li>Comparable sales analysis (3–5 recent properties)</li>
+            <li>Price per m² benchmark against the postcode</li>
+            <li>Condition adjustment for renovation needs</li>
+            <li>Hausgeld and hidden cost check for apartments</li>
+            <li>One-page written report with your verdict</li>
+          </ul>
+          <a class="svc-book" href="#contact">Book Price Evaluation →</a>
         </div>
       </div>
     </div>
 
-    <!-- Phase 3: Close -->
-    <div class="phase">
-      <span class="phase-number">03</span>
-      <span class="phase-label">Phase three</span>
-      <h3 class="phase-title">Close</h3>
-      <p class="phase-desc">Every signature, every form, every notary meeting — handled. You focus on the excitement of your new home.</p>
-
-      <div class="service" id="svc-closing">
-        <div class="service-header" onclick="toggleService('svc-closing')">
-          <div class="service-top">
-            <span class="service-name">Closing support</span>
-            <span class="service-price">€499</span>
-          </div>
-          <span class="service-question">"Can someone handle the paperwork and closing for me?"</span>
-        </div>
-        <div class="service-body">
-          <div class="service-body-inner">
-            <p>Once you've found your property and done your checks, we take over the closing process — coordinating all parties so nothing falls through the cracks.</p>
-            <ul class="service-includes">
-              <li>Viewing coordination with the seller or agent</li>
-              <li>Offer submission and negotiation support</li>
-              <li>Notary appointment coordination</li>
-              <li>Purchase contract review (flagging key clauses)</li>
-              <li>Grundbuch transfer tracking</li>
-              <li>Key handover and move-in checklist</li>
-            </ul>
-            <a class="service-cta" href="#contact">Book Closing Support →</a>
-          </div>
+    <div class="svc-card reveal reveal-delay-2" id="svc-diligence" onclick="toggleSvc('svc-diligence')">
+      <h3 class="svc-name">Due Diligence</h3>
+      <p class="svc-question">"Are there any hidden risks I should know about?"</p>
+      <div class="svc-footer">
+        <span class="svc-price">€499</span>
+        <span class="svc-toggle">+</span>
+      </div>
+      <div class="svc-body">
+        <div class="svc-body-inner">
+          <p class="svc-desc">Do this when you're serious. We go through every document, flag every risk, and give you a clear go / no-go before you commit.</p>
+          <ul class="svc-list">
+            <li>Full Grundbuch (land registry) review</li>
+            <li>Teilungserklärung and Eigentümergemeinschaft documents</li>
+            <li>Check for outstanding debts, liens, or encumbrances</li>
+            <li>Review of minutes for upcoming special assessments</li>
+            <li>Energy certificate and building permit checks</li>
+            <li>Written risk summary with go / no-go recommendation</li>
+          </ul>
+          <a class="svc-book" href="#contact">Book Due Diligence →</a>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- End-to-End Banner -->
-  <div class="e2e-banner reveal" id="e2eBanner">
-    <div class="e2e-top-row">
-      <div>
-        <span class="e2e-tag">Full journey · Most popular</span>
-        <h3 class="e2e-title">End-to-end.<br><em>We handle everything.</em></h3>
-        <p class="e2e-subtitle">From first search to final signature — one point of contact, every step handled.</p>
+    <div class="svc-card reveal" id="svc-financing" onclick="toggleSvc('svc-financing')">
+      <h3 class="svc-name">Financing</h3>
+      <p class="svc-question">"Can I actually get a mortgage for this?"</p>
+      <div class="svc-footer">
+        <span class="svc-price">€199</span>
+        <span class="svc-toggle">+</span>
       </div>
-      <div class="e2e-price-corner">
-        <span class="e2e-price">Starting from</span>
-        <span class="e2e-price-amount">€999</span>
-        <span class="e2e-price-label">full journey</span>
-        <a href="#contact" class="service-cta" style="display:inline-block;margin-top:16px">Get started →</a>
-      </div>
-    </div>
-    <div class="e2e-phases-grid">
-      <div class="e2e-phase-block">
-        <h5>01 — Find</h5>
-        <ul>
-          <li>Questionnaire to map your exact needs</li>
-          <li>60-min intro call to align on criteria</li>
-          <li>3 rounds of 5 shortlisted properties</li>
-          <li>Full data breakdown per property</li>
-          <li>Criteria refinement call after every round</li>
-        </ul>
-      </div>
-      <div class="e2e-phase-block">
-        <h5>02 — Evaluate</h5>
-        <ul>
-          <li>Price evaluation report with offer recommendation</li>
-          <li>Financing assessment &amp; broker introduction</li>
-          <li>Full due diligence on your chosen property</li>
-          <li>Renovation assessment with cost breakdown</li>
-        </ul>
-      </div>
-      <div class="e2e-phase-block">
-        <h5>03 — Close</h5>
-        <ul>
-          <li>Offer submission &amp; negotiation support</li>
-          <li>Notary appointment coordination</li>
-          <li>Purchase contract review</li>
-          <li>Grundbuch transfer tracking</li>
-          <li>Key handover &amp; move-in checklist</li>
-        </ul>
+      <div class="svc-body">
+        <div class="svc-body-inner">
+          <p class="svc-desc">We assess your mortgage readiness and connect you with trusted English-speaking brokers who understand the Indian expat profile.</p>
+          <ul class="svc-list">
+            <li>Review of your income, savings, and financial profile</li>
+            <li>Estimate of borrowing capacity based on German criteria</li>
+            <li>Introduction to 2–3 vetted English-speaking brokers</li>
+            <li>Guidance on documents German banks typically require</li>
+            <li>Clarity on what to expect from the application process</li>
+          </ul>
+          <a class="svc-book" href="#contact">Book Financing →</a>
+        </div>
       </div>
     </div>
+
+    <div class="svc-card reveal reveal-delay-1" id="svc-renovation" onclick="toggleSvc('svc-renovation')">
+      <h3 class="svc-name">Renovation Assistance</h3>
+      <p class="svc-question">"What will it cost to make this liveable?"</p>
+      <div class="svc-footer">
+        <span class="svc-price">€299</span>
+        <span class="svc-toggle">+</span>
+      </div>
+      <div class="svc-body">
+        <div class="svc-body-inner">
+          <p class="svc-desc">Know the real total cost before you commit. We identify what needs doing, what can wait, and give you a realistic budget.</p>
+          <ul class="svc-list">
+            <li>Immediate vs. future work identification</li>
+            <li>Must-have, should-have, nice-to-have priority list</li>
+            <li>Budget estimate by category (kitchen, bathroom, floors)</li>
+            <li>Rough timeline for works</li>
+            <li>Connections to trusted contractors if needed</li>
+          </ul>
+          <a class="svc-book" href="#contact">Book Renovation Assistance →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-card reveal reveal-delay-2" id="svc-e2e" onclick="toggleSvc('svc-e2e')">
+      <h3 class="svc-name">End-to-End</h3>
+      <p class="svc-question">"Can someone handle everything from search to signature?"</p>
+      <div class="svc-footer">
+        <span class="svc-price">€999</span>
+        <span class="svc-toggle">+</span>
+      </div>
+      <div class="svc-body">
+        <div class="svc-body-inner">
+          <p class="svc-desc">From first search to final signature — one point of contact, every step handled. Complete peace of mind.</p>
+          <ul class="svc-list">
+            <li>Everything in steps 01–05 included</li>
+            <li>Questionnaire, intro call & shortlisted properties</li>
+            <li>Price evaluation & financing assessment</li>
+            <li>Full due diligence on your chosen property</li>
+            <li>Notary coordination & contract review</li>
+            <li>Grundbuch transfer tracking & key handover</li>
+          </ul>
+          <a class="svc-book" href="#contact">Book End-to-End →</a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<hr class="divider">
-
-<section id="why">
-  <div class="reveal">
-    <span class="section-label">Why choose us</span>
-    <h2 class="section-title">Built for Indian expats.<br><em>By people who understand.</em></h2>
-  </div>
-  <div class="why-grid reveal">
-    <div class="why-item">
-      <span class="why-item-icon">🌍</span>
-      <h4>Cultural bridge</h4>
-      <p>We understand both Indian and German cultures — what matters to you, and how the German system actually works. No lost-in-translation moments.</p>
-    </div>
-    <div class="why-item">
-      <span class="why-item-icon">💬</span>
-      <h4>Your language</h4>
-      <p>Consultations in English or Hindi. Complex German legal documents explained clearly, without the jargon.</p>
-    </div>
-    <div class="why-item">
-      <span class="why-item-icon">🤝</span>
-      <h4>Trusted network</h4>
-      <p>English-friendly notaries, mortgage brokers, and contractors who have worked with international buyers before.</p>
-    </div>
-    <div class="why-item">
-      <span class="why-item-icon">✓</span>
-      <h4>Always on your side</h4>
-      <p>We work exclusively for buyers. We have no relationship with sellers, banks, or developers — our only interest is yours.</p>
-    </div>
-  </div>
-</section>
 
 <hr class="divider">
 
+<!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="reveal">
-    <span class="section-label">Get in touch</span>
-    <h2 class="section-title">Start your<br><em>property journey.</em></h2>
+    <p class="section-eyebrow" style="color:#4a1020;">Get in touch</p>
+    <h2 class="section-title" style="color:#1a0008;">Start your<br><em style="color:#4a1020;">property journey.</em></h2>
   </div>
   <div class="contact-grid">
-    <div class="contact-info reveal">
-      <h3>We'll get back to you within 24 hours to discuss your situation and next steps.</h3>
-      <p>Whether you're just starting to explore or ready to make an offer, we're here to help at whatever stage you're at.</p>
-      <div class="contact-detail">
-        <span class="contact-detail-label">Email</span>
-        <span class="contact-detail-value"><a href="mailto:contact@an-immobilien.de">contact@an-immobilien.de</a></span>
+    <div class="reveal">
+      <h3 style="color:#1a0008;font-family:'Fraunces',Georgia,serif;font-size:26px;font-weight:400;line-height:1.4;margin-bottom:20px;">We'll get back to you within 24 hours to discuss your situation and next steps.</h3>
+      <p style="color:#4a2030;font-size:14px;line-height:1.8;margin-bottom:36px;">Whether you're just starting to explore or ready to make an offer, we're here to help at whatever stage you're at.</p>
+      <div class="contact-row">
+        <span class="contact-lbl">Email</span>
+        <span class="contact-val"><a href="mailto:info@animmobilien.de">info@animmobilien.de</a></span>
       </div>
-      <div class="contact-detail">
-        <span class="contact-detail-label">Phone</span>
-        <span class="contact-detail-value">+49 176 31400029</span>
+      <div class="contact-row">
+        <span class="contact-lbl">Phone</span>
+        <span class="contact-val">+49 176 31400029</span>
       </div>
-      <div class="contact-detail">
-        <span class="contact-detail-label">Based in</span>
-        <span class="contact-detail-value">Berlin — serving all of Germany</span>
+      <div class="contact-row">
+        <span class="contact-lbl">Based in</span>
+        <span class="contact-val">Berlin — serving all of Germany</span>
       </div>
-      <div class="contact-detail">
-        <span class="contact-detail-label">Languages</span>
-        <span class="contact-detail-value">English · Hindi</span>
+      <div class="contact-row">
+        <span class="contact-lbl">Languages</span>
+        <span class="contact-val">English · Hindi</span>
       </div>
-      <div class="contact-detail">
-        <span class="contact-detail-label">Instagram</span>
-        <span class="contact-detail-value"><a href="https://www.instagram.com/a.n.immobilien/" target="_blank">@a.n.immobilien</a></span>
+      <div class="contact-row">
+        <span class="contact-lbl">Instagram</span>
+        <span class="contact-val"><a href="https://www.instagram.com/a.n.immobilien/" target="_blank">@a.n.immobilien</a></span>
       </div>
     </div>
     <div class="reveal">
@@ -599,17 +554,17 @@ footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:fle
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">Full name</label>
-            <input type="text" class="form-input" placeholder="Rajat Kumar" required>
+            <input type="text" class="form-input" placeholder="Name" required>
           </div>
           <div class="form-group">
             <label class="form-label">Email address</label>
-            <input type="email" class="form-input" placeholder="rajat@email.com" required>
+            <input type="email" class="form-input" placeholder="Email address" required>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">Phone number</label>
-            <input type="tel" class="form-input" placeholder="+49 170 000 0000">
+            <input type="tel" class="form-input" placeholder="Phone number">
           </div>
           <div class="form-group">
             <label class="form-label">Your timeline</label>
@@ -627,9 +582,9 @@ footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:fle
           <div class="checkbox-grid">
             <label class="check-item"><input type="checkbox" name="help" value="scouting"><span class="check-box"></span><span class="check-label">Scouting</span></label>
             <label class="check-item"><input type="checkbox" name="help" value="price"><span class="check-box"></span><span class="check-label">Price evaluation</span></label>
-            <label class="check-item"><input type="checkbox" name="help" value="financing"><span class="check-box"></span><span class="check-label">Financing assessment</span></label>
             <label class="check-item"><input type="checkbox" name="help" value="diligence"><span class="check-box"></span><span class="check-label">Due diligence</span></label>
-            <label class="check-item"><input type="checkbox" name="help" value="renovation"><span class="check-box"></span><span class="check-label">Renovation assessment</span></label>
+            <label class="check-item"><input type="checkbox" name="help" value="financing"><span class="check-box"></span><span class="check-label">Financing</span></label>
+            <label class="check-item"><input type="checkbox" name="help" value="renovation"><span class="check-box"></span><span class="check-label">Renovation assistance</span></label>
             <label class="check-item"><input type="checkbox" name="help" value="e2e"><span class="check-box"></span><span class="check-label">End-to-end</span></label>
           </div>
         </div>
@@ -651,7 +606,7 @@ footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:fle
 <footer>
   <div class="footer-logo">A.N<span>.</span> Immobilien</div>
   <div class="footer-links">
-    <a href="#journey">Services</a>
+    <a href="#services">Services</a>
     <a href="#why">About</a>
     <a href="#contact">Contact</a>
     <a href="https://www.instagram.com/a.n.immobilien/" target="_blank">Instagram</a>
@@ -660,54 +615,50 @@ footer{padding:48px 60px;border-top:1px solid rgba(245,243,238,0.08);display:fle
 </footer>
 
 <script>
-
-
 // Scroll reveal
-const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const obs = new IntersectionObserver(entries => entries.forEach(e => {
+  if(e.isIntersecting) e.target.classList.add('visible');
+}), {threshold: 0.08});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
 // Service accordion
-function toggleService(id){
-  const el=document.getElementById(id);
-  const isOpen=el.classList.contains('open');
-  // close all in same phase
-  el.closest('.phase').querySelectorAll('.service').forEach(s=>s.classList.remove('open'));
-  if(!isOpen)el.classList.add('open');
+function toggleSvc(id) {
+  const el = document.getElementById(id);
+  const isOpen = el.classList.contains('open');
+  document.querySelectorAll('.svc-card').forEach(s => s.classList.remove('open'));
+  if(!isOpen) el.classList.add('open');
 }
 
-
-
 // Form
-document.getElementById('contactForm').addEventListener('submit',async function(e){
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
-  const btn=this.querySelector('.form-submit');
-  btn.textContent='Sending...';btn.disabled=true;
-  const checked=[...document.querySelectorAll('input[name="help"]:checked')].map(c=>c.value).join(', ');
-  const data={
-    name:this.querySelector('input[type="text"]').value,
-    email:this.querySelector('input[type="email"]').value,
-    phone:this.querySelector('input[type="tel"]').value,
-    timeline:this.querySelector('select').value,
-    help:checked||'Not specified',
-    message:this.querySelector('textarea').value
+  const btn = this.querySelector('.form-submit');
+  btn.textContent = 'Sending...'; btn.disabled = true;
+  const checked = [...document.querySelectorAll('input[name="help"]:checked')].map(c => c.value).join(', ');
+  const data = {
+    name: this.querySelector('input[type="text"]').value,
+    email: this.querySelector('input[type="email"]').value,
+    phone: this.querySelector('input[type="tel"]').value,
+    timeline: this.querySelector('select').value,
+    help: checked || 'Not specified',
+    message: this.querySelector('textarea').value
   };
-  try{
-    await fetch('https://script.google.com/macros/s/AKfycbwBubVLoxdZalYLqenn4Cs0Eagdd0H5G1UtovO60tk_V3WeBdHrzkpS-n0QDSClSylh/exec',{
-      method:'POST',
-      mode:'no-cors',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify(data)
+  try {
+    await fetch('https://script.google.com/macros/s/AKfycbwBubVLoxdZalYLqenn4Cs0Eagdd0H5G1UtovO60tk_V3WeBdHrzkpS-n0QDSClSylh/exec', {
+      method: 'POST', mode: 'no-cors',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
     });
-  }catch(err){console.log('Form error:',err)}
-  this.style.display='none';
+  } catch(err) { console.log('Form error:', err) }
+  this.style.display = 'none';
   document.getElementById('formSuccess').classList.add('show');
 });
 
 // Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',function(e){
-    const t=document.querySelector(this.getAttribute('href'));
-    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const t = document.querySelector(this.getAttribute('href'));
+    if(t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}) }
   });
 });
 </script>

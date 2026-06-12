@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A.N Immobilien — Property Consulting for Indian Expats in Germany</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+<meta name="theme-color" content="#2d0a0a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Instrument+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -311,6 +316,101 @@ footer{
   footer{flex-direction:column;gap:20px;text-align:center;padding:32px 24px}
   .footer-links{flex-wrap:wrap;justify-content:center}
 }
+
+/* ── PROPERTIES ── */
+.properties{background:var(--bg)}
+.prop-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px}
+.prop-filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px}
+.prop-filter{
+  padding:8px 18px;border-radius:100px;font-size:12px;letter-spacing:.06em;
+  text-transform:uppercase;border:1.5px solid rgba(74,16,32,0.15);
+  color:#4a1020;background:transparent;cursor:pointer;
+  transition:all .25s;font-family:var(--sans);
+}
+.prop-filter:hover,.prop-filter.active{background:#4a1020;color:#fff;border-color:#4a1020}
+.prop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.prop-card{
+  background:var(--white);border-radius:16px;overflow:hidden;
+  border:1.5px solid rgba(0,0,0,0.06);
+  transition:transform .3s,box-shadow .3s,border-color .3s;
+  cursor:pointer;
+}
+.prop-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(74,16,32,0.1);border-color:rgba(74,16,32,0.2)}
+.prop-card.hidden{display:none}
+.prop-badge{
+  padding:4px 12px;border-radius:100px;font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+}
+.badge-apartment{background:#fdf0f2;color:#4a1020}
+.badge-house{background:#f0f7f2;color:#1a5c30}
+.badge-land{background:#f5f3e8;color:#7a4a18}
+.prop-top{padding:28px 28px 0}
+.prop-id{font-size:10px;letter-spacing:.2em;color:#a88080;margin-bottom:8px;text-transform:uppercase}
+.prop-name{font-family:var(--serif);font-size:18px;font-weight:400;color:#1a0a10;line-height:1.3;margin-bottom:12px}
+.prop-location{font-size:13px;color:#7a5050;margin-bottom:20px;display:flex;align-items:center;gap:6px}
+.prop-location::before{content:'📍';font-size:11px}
+.prop-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(0,0,0,0.06);border-top:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06)}
+.prop-stat{background:var(--white);padding:14px 16px;text-align:center}
+.prop-stat-val{font-size:16px;font-weight:500;color:#1a0a10;font-family:var(--serif);display:block}
+.prop-stat-lbl{font-size:10px;color:#a88080;text-transform:uppercase;letter-spacing:.08em;display:block;margin-top:2px}
+.prop-bottom{padding:20px 28px 28px;display:flex;justify-content:space-between;align-items:flex-end}
+.prop-price{font-family:var(--serif);font-size:24px;font-weight:400;color:#4a1020}
+.prop-price-m2{font-size:12px;color:#a88080;margin-top:2px}
+.prop-tags{display:flex;gap:6px;flex-wrap:wrap}
+.prop-tag{
+  padding:4px 10px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  border-radius:6px;
+}
+.tag-yes{background:#f0faf4;color:#1a5c30}
+.tag-no{background:#f5f5f5;color:#999}
+.tag-flag{background:#fff5f5;color:#c0392b}
+
+/* Modal */
+.prop-modal-overlay{
+  display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);
+  z-index:500;align-items:center;justify-content:center;padding:24px;
+}
+.prop-modal-overlay.open{display:flex}
+.prop-modal{
+  background:var(--white);border-radius:20px;max-width:760px;width:100%;
+  max-height:90vh;overflow-y:auto;position:relative;
+}
+.prop-modal-header{padding:36px 40px 24px;border-bottom:1px solid rgba(0,0,0,0.07)}
+.prop-modal-id{font-size:10px;letter-spacing:.2em;color:#a88080;text-transform:uppercase;margin-bottom:8px}
+.prop-modal-name{font-family:var(--serif);font-size:28px;font-weight:400;color:#1a0a10;line-height:1.2;margin-bottom:8px}
+.prop-modal-address{font-size:14px;color:#7a5050}
+.prop-modal-body{padding:32px 40px}
+.prop-modal-price{font-family:var(--serif);font-size:36px;color:#4a1020;margin-bottom:4px}
+.prop-modal-price-m2{font-size:13px;color:#a88080;margin-bottom:32px}
+.prop-modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:32px}
+.prop-modal-section h4{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#4a1020;margin-bottom:14px;font-weight:600}
+.prop-detail-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.05);font-size:13px}
+.prop-detail-row:last-child{border-bottom:none}
+.prop-detail-lbl{color:#a88080}
+.prop-detail-val{color:#1a0a10;font-weight:400;text-align:right;max-width:55%}
+.prop-notes-section{background:#fdf8f9;border-radius:12px;padding:20px;margin-bottom:20px}
+.prop-notes-section h4{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#4a1020;margin-bottom:10px;font-weight:600}
+.prop-notes-section p{font-size:13px;color:#4a2030;line-height:1.7}
+.prop-flags-section{background:#fff5f5;border-radius:12px;padding:20px;margin-bottom:20px}
+.prop-flags-section h4{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#c0392b;margin-bottom:10px;font-weight:600}
+.prop-flags-section p{font-size:13px;color:#8b0000;line-height:1.7}
+.prop-why-section{background:#f5fdf8;border-radius:12px;padding:20px;margin-bottom:24px}
+.prop-why-section h4{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#1a5c30;margin-bottom:10px;font-weight:600}
+.prop-why-section p{font-size:13px;color:#2a4a30;line-height:1.7}
+.prop-modal-close{
+  position:absolute;top:20px;right:24px;width:36px;height:36px;
+  border-radius:50%;border:1.5px solid rgba(0,0,0,0.1);background:var(--white);
+  font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  color:#888;transition:all .2s;
+}
+.prop-modal-close:hover{background:#4a1020;color:#fff;border-color:#4a1020}
+@media(max-width:960px){
+  .prop-grid{grid-template-columns:1fr}
+  .prop-modal-grid{grid-template-columns:1fr}
+  .prop-modal{border-radius:16px}
+  .prop-modal-header,.prop-modal-body{padding:24px}
+}
+
 </style>
 </head>
 <body>
@@ -319,6 +419,7 @@ footer{
   <a href="#" class="logo">A.N<span>.</span> Immobilien</a>
   <nav>
     <a href="#services">Services</a>
+    <a href="#properties">Properties</a>
     <a href="#why">About</a>
     <a href="#contact">Contact</a>
     <a href="#contact" class="nav-cta">Get Started</a>
@@ -332,6 +433,7 @@ footer{
     <p class="hero-eyebrow">Property consulting · Berlin · Germany</p>
     <h1>Your home<br>in Germany.<br><em>Done right.</em></h1>
     <p class="hero-sub">Expert guidance for Indian expats navigating Germany's property market — from the first search to the final signature.</p>
+    <p style="margin-top:16px;font-size:12px;color:var(--grey-3);letter-spacing:.05em">Licensed Immobilienmaklerin · §34c GewO · Registered in Berlin</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-dark">Start Your Journey</a>
       <a href="#services" class="btn-outline">Our Services</a>
@@ -518,6 +620,231 @@ footer{
 
 <hr class="divider">
 
+<section class="properties" id="properties">
+  <div class="prop-header reveal">
+    <div>
+      <p class="section-eyebrow">Property pipeline</p>
+      <h2 class="section-title">Current listings.<br><em>Curated for you.</em></h2>
+    </div>
+    <p class="section-sub" style="align-self:flex-end;color:#7a5050">All properties reviewed and assessed by our team. Click any card for full details.</p>
+  </div>
+
+  <div class="prop-filters reveal">
+    <button class="prop-filter active" onclick="filterProps('all')">All (8)</button>
+    <button class="prop-filter" onclick="filterProps('apartment')">Apartments</button>
+    <button class="prop-filter" onclick="filterProps('house')">Houses</button>
+    <button class="prop-filter" onclick="filterProps('land')">Land</button>
+  </div>
+
+  <div class="prop-grid reveal">
+
+    <!-- P001 -->
+    <div class="prop-card" data-type="apartment" onclick="openProp('p001')">
+      <div class="prop-top">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <span class="prop-id">P001</span>
+          <span class="prop-badge badge-apartment">Apartment</span>
+        </div>
+        <h3 class="prop-name">3-Zimmer Stephankiez (3.OG)</h3>
+        <p class="prop-location">Moabit (Mitte) · 10559</p>
+      </div>
+      <div class="prop-stats">
+        <div class="prop-stat"><span class="prop-stat-val">67 m²</span><span class="prop-stat-lbl">Size</span></div>
+        <div class="prop-stat"><span class="prop-stat-val">3</span><span class="prop-stat-lbl">Rooms</span></div>
+        <div class="prop-stat"><span class="prop-stat-val">1965</span><span class="prop-stat-lbl">Built</span></div>
+      </div>
+      <div class="prop-bottom">
+        <div><div class="prop-price">€435.500</div><div class="prop-price-m2">€6.500/m²</div></div>
+        <div class="prop-tags">
+          <span class="prop-tag tag-yes">Balcony</span>
+          <span class="prop-tag tag-no">No lift</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- P002 -->
+    <div class="prop-card" data-type="house" onclick="openProp('p002')">
+      <div class="prop-top">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <span class="prop-id">P002</span>
+          <span class="prop-badge badge-house">House</span>
+        </div>
+        <h3 class="prop-name">Doppelhaushälfte Kaulsdorf an der Wuhle</h3>
+        <p class="prop-location">Kaulsdorf (Marzahn-Hellersdorf) · 12621</p>
+      </div>
+      <div class="prop-stats">
+        <div class="prop-stat"><span class="prop-stat-val">103 m²</span><span class="prop-stat-lbl">Size</span></div>
+        <div class="prop-stat"><span class="prop-stat-val">4</span><span class="prop-stat-lbl">Rooms</span></div>
+        <div class="prop-stat"><span class="prop-stat-val">1993</span><span class="prop-stat-lbl">Built</span></div>
+      </div>
+      <div class="prop-bottom">
+        <div><div class="prop-price">€499.000</div><div class="prop-price-m2">€4.844/m²</div></div>
+        <div class="prop-tags">
+          <span class="prop-tag tag-yes">Garden</span>
+          <span class="prop-tag tag-yes">Parking</span>
+          <span class="prop-tag tag-flag">Energy F</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- P003 -->
+    <div class="prop-card" data-type="apartment" onclick="openProp('p003')">
+      <div class="prop-top">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <span class="prop-id">P003</span>
+          <span class="prop-badge badge-apartment">Apartment</span>
+        </div>
+        <h3 class="prop-name">3-Zimmer Stephankiez (4.OG, möbliert)</h3>
+        <p class="prop-location">Moabit (Mitte) · 10559</p>
+      </div>
+      <div class="prop-stats">
+        <div class="prop-stat"><span class="prop-stat-val">67 m²</span><span class="prop-stat-lbl">Size</span></div>
+        <div class="prop-stat"><span class="prop-stat-val">3</span><span class="prop-stat-lbl">Rooms</span></div>
+        <div class="prop-stat"><span class="prop-stat-val">1965</span><span class="prop-stat-lbl">Built</span></div>
+      </div>
+      <div class="prop-bottom">
+        <div><div class="prop-price">€449.000</div><div class="prop-price-m2">€6.701/m²</div></div>
+        <div class="prop-tags">
+          <span class="prop-tag tag-yes">Furnished</span>
+          <span class="prop-tag tag-yes">Balcony</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- P004 -->
+    <div class="prop-card" data-type="apartment" onclick="openProp('p004')">
+      <div class="prop-top">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <span class="prop-id">P004</span>
+          <span class="prop-badge badge-apartment">Apartment</span>
+        </div>
+        <h3 class="prop-name">Neubauwohnung Das Gotland, Prenzlauer Berg</h3>
+        <p class="prop-location">Prenzlauer Berg (Pankow) · 10439</p>
+      </div>
+      <div class="prop-stats">
+        <div class="prop-stat"><span class="prop-stat-val">84 m²</span><span class="prop-stat-lbl">Size</span></div>
+        <div class="prop-stat"><span class="prop-stat-val">3</span><span class="prop-stat-lbl">Rooms</span></div>
+        <div class="prop-stat"><span class="prop-stat-val">2018</span><span class="prop-stat-lbl">Built</span></div>
+      </div>
+      <div class="prop-bottom">
+        <div><div class="prop-price">€639.000</div><div class="prop-price-m2">€7.589/m²</div></div>
+        <div class="prop-tags">
+          <span class="prop-tag tag-yes">Lift</span>
+          <span class="prop-tag tag-yes">Neubau</span>
+          <span class="prop-tag tag-yes">Energy C</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- P005 -->
+    <div class="prop-card" data-type="apartment" onclick="openProp('p005')">
+      <div class="prop-top">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <span class="prop-id">P005</span>
+          <span class="prop-badge badge-apartment">Apartment</span>
+        </div>
+        <h3 class="prop-name">Terrassenwohnung Teichstr. 50 (Gate Community)</h3>
+        <p class="prop-location">Reinickendorf · 13407</p>
+      </div>
+      <div class="prop-stats">
+        <div class="prop-stat"><span class="prop-stat-val">149 m²</span><span class="prop-stat-lbl">Size</span></div>
+        <div class="prop-stat"><span class="prop-stat-val">3</span><span class="prop-stat-lbl">Rooms</span></div>
+        <div class="prop-stat"><span class="prop-stat-val">1973</span><span class="prop-stat-lbl">Built</span></div>
+      </div>
+      <div class="prop-bottom">
+        <div><div class="prop-price">€585.000</div><div class="prop-price-m2">€3.926/m²</div></div>
+        <div class="prop-tags">
+          <span class="prop-tag tag-yes">50m² Terrace</span>
+          <span class="prop-tag tag-yes">Energy B</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- P006 -->
+    <div class="prop-card" data-type="apartment" onclick="openProp('p006')">
+      <div class="prop-top">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <span class="prop-id">P006</span>
+          <span class="prop-badge badge-apartment">Apartment</span>
+        </div>
+        <h3 class="prop-name">Wohnung Holländerstraße 58, Wedding</h3>
+        <p class="prop-location">Wedding (Mitte) · 13407</p>
+      </div>
+      <div class="prop-stats">
+        <div class="prop-stat"><span class="prop-stat-val">68 m²</span><span class="prop-stat-lbl">Size</span></div>
+        <div class="prop-stat"><span class="prop-stat-val">2</span><span class="prop-stat-lbl">Rooms</span></div>
+        <div class="prop-stat"><span class="prop-stat-val">1969</span><span class="prop-stat-lbl">Built</span></div>
+      </div>
+      <div class="prop-bottom">
+        <div><div class="prop-price">€259.500</div><div class="prop-price-m2">€3.792/m²</div></div>
+        <div class="prop-tags">
+          <span class="prop-tag tag-yes">Lift</span>
+          <span class="prop-tag tag-flag">Needs Reno</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- P007 -->
+    <div class="prop-card" data-type="apartment" onclick="openProp('p007')">
+      <div class="prop-top">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <span class="prop-id">P007</span>
+          <span class="prop-badge badge-apartment">Apartment</span>
+        </div>
+        <h3 class="prop-name">Altbauwohnung Güntzelkiez, Charlottenburg</h3>
+        <p class="prop-location">Charlottenburg-Wilmersdorf · 10717</p>
+      </div>
+      <div class="prop-stats">
+        <div class="prop-stat"><span class="prop-stat-val">193 m²</span><span class="prop-stat-lbl">Size</span></div>
+        <div class="prop-stat"><span class="prop-stat-val">7</span><span class="prop-stat-lbl">Rooms</span></div>
+        <div class="prop-stat"><span class="prop-stat-val">1914</span><span class="prop-stat-lbl">Built</span></div>
+      </div>
+      <div class="prop-bottom">
+        <div><div class="prop-price">€1.399.000</div><div class="prop-price-m2">€7.248/m²</div></div>
+        <div class="prop-tags">
+          <span class="prop-tag tag-yes">No Commission</span>
+          <span class="prop-tag tag-yes">Altbau</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- P008 -->
+    <div class="prop-card" data-type="land" onclick="openProp('p008')">
+      <div class="prop-top">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <span class="prop-id">P008</span>
+          <span class="prop-badge badge-land">Land</span>
+        </div>
+        <h3 class="prop-name">Baugrundstück Mövenstraße 2, Potsdam</h3>
+        <p class="prop-location">Klein Glienicke (Potsdam) · 14482</p>
+      </div>
+      <div class="prop-stats">
+        <div class="prop-stat"><span class="prop-stat-val">~1.000 m²</span><span class="prop-stat-lbl">Plot</span></div>
+        <div class="prop-stat"><span class="prop-stat-val">2 DHH</span><span class="prop-stat-lbl">Permitted</span></div>
+        <div class="prop-stat"><span class="prop-stat-val">Potsdam</span><span class="prop-stat-lbl">Location</span></div>
+      </div>
+      <div class="prop-bottom">
+        <div><div class="prop-price">€1.300.000</div><div class="prop-price-m2">Planning granted</div></div>
+        <div class="prop-tags">
+          <span class="prop-tag tag-yes">Baugenehmigung</span>
+          <span class="prop-tag tag-yes">Garden</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Property Modals -->
+<div class="prop-modal-overlay" id="propModal" onclick="closePropModal(event)">
+  <div class="prop-modal" id="propModalContent">
+    <button class="prop-modal-close" onclick="closeProp()">×</button>
+    <div id="propModalInner"></div>
+  </div>
+</div>
+
+<hr class="divider">
+
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="reveal">
@@ -547,6 +874,14 @@ footer{
       <div class="contact-row">
         <span class="contact-lbl">Instagram</span>
         <span class="contact-val"><a href="https://www.instagram.com/a.n.immobilien/" target="_blank">@a.n.immobilien</a></span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-lbl">WhatsApp</span>
+        <span class="contact-val"><a href="https://whatsapp.com/channel/placeholder" target="_blank">Join our channel</a></span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-lbl">Facebook</span>
+        <span class="contact-val"><a href="https://www.facebook.com/profile.php?id=61561377807870" target="_blank">A.N. Immobilien</a></span>
       </div>
     </div>
     <div class="reveal">
@@ -607,11 +942,14 @@ footer{
   <div class="footer-logo">A.N<span>.</span> Immobilien</div>
   <div class="footer-links">
     <a href="#services">Services</a>
+    <a href="#properties">Properties</a>
     <a href="#why">About</a>
     <a href="#contact">Contact</a>
     <a href="https://www.instagram.com/a.n.immobilien/" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/profile.php?id=61561377807870" target="_blank">Facebook</a>
+    <a href="https://whatsapp.com/channel/placeholder" target="_blank">WhatsApp</a>
   </div>
-  <div class="footer-copy">© 2026 A.N Immobilien · Berlin</div>
+  <div class="footer-copy">© 2026 A.N Immobilien · Berlin · <a href="impressum.html" style="color:var(--grey-4);text-decoration:none">Impressum</a></div>
 </footer>
 
 <script>
@@ -653,6 +991,341 @@ document.getElementById('contactForm').addEventListener('submit', async function
   this.style.display = 'none';
   document.getElementById('formSuccess').classList.add('show');
 });
+
+
+const propData = {
+  "p001": {
+    "id": "P001",
+    "name": "3-Zimmer Wohnung Stephankiez (3.OG, unfurnished)",
+    "address": "Havelberger Str. 15, 3.OG links 08",
+    "district": "Moabit (Mitte)",
+    "postcode": "10559",
+    "price": "€435.500",
+    "price_m2": "€6.500/m²",
+    "hausgeld": "€406/mo",
+    "size": "67 m²",
+    "rooms": "3",
+    "bedrooms": "2",
+    "bathrooms": "1",
+    "floor": "3rd of 4",
+    "lift": "No",
+    "balcony": "Yes",
+    "garden": "No",
+    "parking": "No",
+    "cellar": "Yes",
+    "furnished": "No",
+    "year_built": "1965",
+    "renovated": "2020",
+    "condition": "Good",
+    "energy": "C",
+    "energy_kwh": "97.1 kWh/m²/yr",
+    "heating": "District heating",
+    "commission": "3.57%",
+    "sonderumlage": "Unknown",
+    "listed": "Furkes Investment GmbH",
+    "notes": "Refurbished 2020; old windows in this unit (~€11k to replace); building infrastructure renewed 2020-2025.",
+    "flags": "Old windows; no lift; 3rd floor of 4 (no elevator).",
+    "why": ""
+  },
+  "p002": {
+    "id": "P002",
+    "name": "Doppelhaushälfte Kaulsdorf an der Wuhle",
+    "address": "Lenbachstraße 27a",
+    "district": "Kaulsdorf (Marzahn-Hellersdorf)",
+    "postcode": "12621",
+    "price": "€499.000",
+    "price_m2": "€4.844/m²",
+    "hausgeld": "—",
+    "size": "103 m²",
+    "rooms": "4",
+    "bedrooms": "3",
+    "bathrooms": "2",
+    "floor": "Ground + 1 + Attic",
+    "lift": "No",
+    "balcony": "Yes (2 terraces)",
+    "garden": "Yes",
+    "parking": "Yes (1 space)",
+    "cellar": "Yes",
+    "furnished": "No",
+    "year_built": "1993",
+    "renovated": "Recent (bathroom)",
+    "condition": "Good",
+    "energy": "F",
+    "energy_kwh": "—",
+    "heating": "Oil heating",
+    "commission": "3.57%",
+    "sonderumlage": "Unknown",
+    "listed": "Furkes Investment GmbH",
+    "notes": "Well-maintained; 2 terraces; river-adjacent green plot; basement hobby room; recent bathroom renovation.",
+    "flags": "Energy class F (oil heating = future cost risk); no energy cert expiry listed; no Hausgeld data.",
+    "why": ""
+  },
+  "p003": {
+    "id": "P003",
+    "name": "3-Zimmer Wohnung Stephankiez (4.OG, möbliert)",
+    "address": "Havelberger Str. 15, 4.OG links 10",
+    "district": "Moabit (Mitte)",
+    "postcode": "10559",
+    "price": "€449.000",
+    "price_m2": "€6.701/m²",
+    "hausgeld": "€406/mo",
+    "size": "67 m²",
+    "rooms": "3",
+    "bedrooms": "2",
+    "bathrooms": "1",
+    "floor": "4th of 4 (top)",
+    "lift": "No",
+    "balcony": "Yes",
+    "garden": "No",
+    "parking": "No",
+    "cellar": "Yes",
+    "furnished": "Yes (full)",
+    "year_built": "1965",
+    "renovated": "2020",
+    "condition": "Good",
+    "energy": "C",
+    "energy_kwh": "97.1 kWh/m²/yr",
+    "heating": "District heating",
+    "commission": "3.57%",
+    "sonderumlage": "Unknown",
+    "listed": "Furkes Investment GmbH",
+    "notes": "Fully furnished; top floor (4th); same building as P001; building renewed 2020-2025; modern kitchen.",
+    "flags": "No lift; top floor (stairs only); windows vary by unit — check if this unit has new ones.",
+    "why": ""
+  },
+  "p004": {
+    "id": "P004",
+    "name": "Neubauwohnung Das Gotland, Prenzlauer Berg (1.OG)",
+    "address": "Gotlandstraße 10F, 1. OG",
+    "district": "Prenzlauer Berg (Pankow)",
+    "postcode": "10439",
+    "price": "€639.000",
+    "price_m2": "€7.589/m²",
+    "hausgeld": "€329/mo",
+    "size": "84.2 m²",
+    "rooms": "3",
+    "bedrooms": "2",
+    "bathrooms": "1",
+    "floor": "1st of 5",
+    "lift": "Yes",
+    "balcony": "Yes (west-facing courtyard)",
+    "garden": "No",
+    "parking": "No",
+    "cellar": "Yes",
+    "furnished": "No",
+    "year_built": "2018",
+    "renovated": "2018 (new build)",
+    "condition": "Excellent",
+    "energy": "C",
+    "energy_kwh": "77 kWh/m²/yr",
+    "heating": "Central (KWK regenerativ)",
+    "commission": "3.57%",
+    "sonderumlage": "Unknown",
+    "listed": "Furkes Investment GmbH",
+    "notes": "Neubau 2018; KfW 70 efficiency house; parquet floors; fitted kitchen included; underfloor heating; barrier-free access; quiet courtyard.",
+    "flags": "Only 1 bathroom; 1st floor (low); no parking; commission applies.",
+    "why": "Prenzlauer Berg Neubau at €7,589/m² is expensive but justified: KfW 70 energy standard means very low running costs; 2018 build eliminates near-term renovation risk; Prenzlauer Berg commands Berlin's most stable rental demand. For an Indian expat buyer wanting a hassle-free, high-quality first property in a safe A-location, this is the lowest-execution-risk option in the pipeline."
+  },
+  "p005": {
+    "id": "P005",
+    "name": "Terrassenwohnung Teichstr. 50 (EG, Gate Community)",
+    "address": "Teichstraße 50, EG",
+    "district": "Reinickendorf",
+    "postcode": "13407",
+    "price": "€585.000",
+    "price_m2": "€3.926/m²",
+    "hausgeld": "€562/mo",
+    "size": "149 m²",
+    "rooms": "3",
+    "bedrooms": "2",
+    "bathrooms": "2",
+    "floor": "Ground (EG)",
+    "lift": "Yes (2 lifts)",
+    "balcony": "Yes (50m² terrace)",
+    "garden": "No (park grounds)",
+    "parking": "Yes (1 outdoor)",
+    "cellar": "Yes",
+    "furnished": "Partial (kitchen + selected)",
+    "year_built": "1973",
+    "renovated": "2015",
+    "condition": "Good",
+    "energy": "B",
+    "energy_kwh": "—",
+    "heating": "District heating (Fernwärme KWK)",
+    "commission": "3.57%",
+    "sonderumlage": "Unknown",
+    "listed": "Savchenko & Bucatinschi Real Estate",
+    "notes": "50m² terrace accessible from all rooms; parquet under vinyl; network connections in all rooms; fibre-ready; video intercom; gate community on ~10,000m² grounds with sports facilities.",
+    "flags": "Ground floor (EG); 1973 build with partial reno only; high Hausgeld (€562/mo); Reinickendorf far from Mitte; vinyl over parquet — condition unknown.",
+    "why": "149m² for €585k (€3,926/m²) is exceptional value for Berlin — 40-50% below Prenzlauer Berg comparable. The 50m² private terrace is a rare asset class. Energy class B on Fernwärme already future-proofed against GEG heating law changes. Ideal for a family buyer prioritising space and outdoor living over postcode prestige."
+  },
+  "p006": {
+    "id": "P006",
+    "name": "Wohnung Holländerstraße 58, Wedding (3.OG)",
+    "address": "Holländerstraße 58, 3. OG",
+    "district": "Wedding (Mitte)",
+    "postcode": "13407",
+    "price": "€259.500",
+    "price_m2": "€3.792/m²",
+    "hausgeld": "€380/mo",
+    "size": "68.42 m²",
+    "rooms": "2",
+    "bedrooms": "1",
+    "bathrooms": "1",
+    "floor": "3rd of 5",
+    "lift": "Yes",
+    "balcony": "Yes (green view)",
+    "garden": "No",
+    "parking": "Yes (1 outdoor)",
+    "cellar": "Yes",
+    "furnished": "No",
+    "year_built": "1969",
+    "renovated": "—",
+    "condition": "Poor (needs full renovation)",
+    "energy": "D",
+    "energy_kwh": "120 kWh/m²/yr",
+    "heating": "Etagenheizung (Gas)",
+    "commission": "3.57%",
+    "sonderumlage": "Unknown",
+    "listed": "Bodenkontor Liegenschaften GmbH",
+    "notes": "Requires full renovation; sound-proof windows; separate kitchen layout; near Berlin TXL future development zone.",
+    "flags": "Sanierungsbedürftig — full renovation cost (~€80-120k) needed; Energy class D (gas heating); old kitchen; carpet/old flooring.",
+    "why": "At €259,500 this is the lowest entry price in the pipeline. Wedding is gentrifying fast; proximity to Berlin TXL means structural demand growth. Total all-in ~€380k after reno, still well below market rate for a renovated 68m² in Mitte. Strong buy for an investor or buyer comfortable managing a renovation project."
+  },
+  "p007": {
+    "id": "P007",
+    "name": "Altbauwohnung Güntzelkiez, Charlottenburg (1.OG)",
+    "address": "Holsteinische Straße 26, 1. OG",
+    "district": "Charlottenburg-Wilmersdorf",
+    "postcode": "10717",
+    "price": "€1.399.000",
+    "price_m2": "€7.248/m²",
+    "hausgeld": "€1.040/mo",
+    "size": "193 m²",
+    "rooms": "7",
+    "bedrooms": "5",
+    "bathrooms": "3",
+    "floor": "1st of 5",
+    "lift": "Yes",
+    "balcony": "Yes (loggia + balcony)",
+    "garden": "No",
+    "parking": "No",
+    "cellar": "Yes",
+    "furnished": "No",
+    "year_built": "1914",
+    "renovated": "2015",
+    "condition": "Good (saniert)",
+    "energy": "C",
+    "energy_kwh": "89.1 kWh/m²/yr",
+    "heating": "District heating (Fernwärme)",
+    "commission": "0% (no commission)",
+    "sonderumlage": "Unknown",
+    "listed": "Bodenkontor Liegenschaften GmbH",
+    "notes": "Two units merged physically but not in Grundbuch — separable with low effort; Altbau charm with high ceilings and stucco; herringbone parquet; modern fitted kitchen; 2 full baths + guest WC; Fernwärme plant updated 2021.",
+    "flags": "High Hausgeld (€1,040/mo); 1914 build — check for hidden Altbau costs; no parking; units legally separate (complication or opportunity).",
+    "why": "Commission-free at €1.399M in Güntzelkiez — one of Berlin's top 3 residential addresses. The two-unit Grundbuch structure means buyer gets a 193m² home today and retains the option to sell one unit separately later. Altbau in this kiez has outperformed Berlin average price growth every decade since reunification. Best option for a high-budget buyer seeking long-term capital preservation."
+  },
+  "p008": {
+    "id": "P008",
+    "name": "Baugrundstück Mövenstraße 2, Potsdam-Klein Glienicke",
+    "address": "Mövenstraße 2 (Flurstück 454)",
+    "district": "Klein Glienicke (Potsdam)",
+    "postcode": "14482",
+    "price": "€1.300.000",
+    "price_m2": "—",
+    "hausgeld": "—",
+    "size": "~1.000 m² plot",
+    "rooms": "—",
+    "bedrooms": "—",
+    "bathrooms": "—",
+    "floor": "—",
+    "lift": "—",
+    "balcony": "Planned",
+    "garden": "Yes",
+    "parking": "Yes (2 per unit, planned)",
+    "cellar": "Planned",
+    "furnished": "No",
+    "year_built": "—",
+    "renovated": "—",
+    "condition": "Land — undeveloped",
+    "energy": "—",
+    "energy_kwh": "—",
+    "heating": "—",
+    "commission": "3.57%",
+    "sonderumlage": "—",
+    "listed": "Bodenkontor Liegenschaften GmbH",
+    "notes": "~1,000m² plot in Klein Glienicke; Baugenehmigung granted for 2 Doppelhaushälften à ~200m²; can split into 2x ~500m² plots; villa neighbourhood near Havel; fully serviced.",
+    "flags": "Outside Berlin (Potsdam); construction cost on top (~€600-800k+ per DHH); total outlay per unit likely €1.5M+; commission applies.",
+    "why": "Baugenehmigung already granted — planning permission in Brandenburg typically takes 18-24 months. Klein Glienicke is Berlin's most exclusive suburban enclave; villa plots almost never come to market here. Buying and building delivers ~€400-500k in GDV uplift per half. Viable primarily as a developer play or bespoke family home project."
+  }
+};
+
+function openProp(id) {
+  const p = propData[id];
+  if(!p) return;
+  const why = p.why ? `<div class="prop-why-section"><h4>Why buy this</h4><p>${p.why}</p></div>` : '';
+  const flags = p.flags ? `<div class="prop-flags-section"><h4>⚠ Red flags</h4><p>${p.flags}</p></div>` : '';
+  const notes = p.notes ? `<div class="prop-notes-section"><h4>Condition notes</h4><p>${p.notes}</p></div>` : '';
+  document.getElementById('propModalInner').innerHTML = `
+    <div class="prop-modal-header">
+      <div class="prop-modal-id">${p.id}</div>
+      <h2 class="prop-modal-name">${p.name}</h2>
+      <p class="prop-modal-address">${p.address} · ${p.district} · ${p.postcode}</p>
+    </div>
+    <div class="prop-modal-body">
+      <div class="prop-modal-price">${p.price}</div>
+      <div class="prop-modal-price-m2">${p.price_m2} · Hausgeld: ${p.hausgeld}</div>
+      <div class="prop-modal-grid">
+        <div class="prop-modal-section">
+          <h4>Property details</h4>
+          <div class="prop-detail-row"><span class="prop-detail-lbl">Size</span><span class="prop-detail-val">${p.size}</span></div>
+          <div class="prop-detail-row"><span class="prop-detail-lbl">Rooms</span><span class="prop-detail-val">${p.rooms} (${p.bedrooms} bed, ${p.bathrooms} bath)</span></div>
+          <div class="prop-detail-row"><span class="prop-detail-lbl">Floor</span><span class="prop-detail-val">${p.floor}</span></div>
+          <div class="prop-detail-row"><span class="prop-detail-lbl">Lift</span><span class="prop-detail-val">${p.lift}</span></div>
+          <div class="prop-detail-row"><span class="prop-detail-lbl">Balcony</span><span class="prop-detail-val">${p.balcony}</span></div>
+          <div class="prop-detail-row"><span class="prop-detail-lbl">Garden</span><span class="prop-detail-val">${p.garden}</span></div>
+          <div class="prop-detail-row"><span class="prop-detail-lbl">Parking</span><span class="prop-detail-val">${p.parking}</span></div>
+          <div class="prop-detail-row"><span class="prop-detail-lbl">Cellar</span><span class="prop-detail-val">${p.cellar}</span></div>
+          <div class="prop-detail-row"><span class="prop-detail-lbl">Furnished</span><span class="prop-detail-val">${p.furnished}</span></div>
+        </div>
+        <div class="prop-modal-section">
+          <h4>Building & energy</h4>
+          <div class="prop-detail-row"><span class="prop-detail-lbl">Year built</span><span class="prop-detail-val">${p.year_built}</span></div>
+          <div class="prop-detail-row"><span class="prop-detail-lbl">Last renovated</span><span class="prop-detail-val">${p.renovated}</span></div>
+          <div class="prop-detail-row"><span class="prop-detail-lbl">Condition</span><span class="prop-detail-val">${p.condition}</span></div>
+          <div class="prop-detail-row"><span class="prop-detail-lbl">Energy rating</span><span class="prop-detail-val">${p.energy}</span></div>
+          <div class="prop-detail-row"><span class="prop-detail-lbl">Energy usage</span><span class="prop-detail-val">${p.energy_kwh}</span></div>
+          <div class="prop-detail-row"><span class="prop-detail-lbl">Heating</span><span class="prop-detail-val">${p.heating}</span></div>
+          <div class="prop-detail-row"><span class="prop-detail-lbl">Commission</span><span class="prop-detail-val">${p.commission}</span></div>
+          <div class="prop-detail-row"><span class="prop-detail-lbl">Sonderumlage</span><span class="prop-detail-val">${p.sonderumlage}</span></div>
+          <div class="prop-detail-row"><span class="prop-detail-lbl">Listed by</span><span class="prop-detail-val">${p.listed}</span></div>
+        </div>
+      </div>
+      ${notes}${flags}${why}
+      <a href="#contact" class="svc-book" onclick="closeProp()" style="margin-top:8px">Enquire about this property →</a>
+    </div>
+  `;
+  document.getElementById('propModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function closeProp() {
+  document.getElementById('propModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function closePropModal(e) {
+  if(e.target === document.getElementById('propModal')) closeProp();
+}
+
+function filterProps(type) {
+  document.querySelectorAll('.prop-filter').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.prop-card').forEach(card=>{
+    if(type==='all' || card.dataset.type===type) card.classList.remove('hidden');
+    else card.classList.add('hidden');
+  });
+}
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a => {

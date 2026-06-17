@@ -291,6 +291,32 @@ footer{
 .footer-links a:hover{color:var(--black)}
 .footer-copy{font-size:12px;color:var(--grey-4)}
 
+
+/* GDPR consent checkbox */
+.consent-item{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:14px 16px;border:1.5px solid rgba(74,16,32,0.15);
+  border-radius:10px;background:#fdf8f9;margin-top:4px;
+  transition:border-color .25s;cursor:pointer;
+}
+.consent-item:hover{border-color:rgba(74,16,32,0.3)}
+.consent-item input{display:none}
+.consent-item:has(input:checked){border-color:#4a1020;background:#f0d0d8}
+.consent-box{
+  width:18px;height:18px;flex-shrink:0;margin-top:2px;
+  border:1.5px solid rgba(74,16,32,0.25);border-radius:4px;
+  position:relative;transition:all .2s;background:#fff;
+}
+.consent-item:has(input:checked) .consent-box{background:#4a1020;border-color:#4a1020}
+.consent-box::after{
+  content:'✓';position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);font-size:11px;color:#fff;
+  opacity:0;transition:opacity .2s;font-weight:700;
+}
+.consent-item:has(input:checked) .consent-box::after{opacity:1}
+.consent-label{font-size:12px;color:#4a2030;line-height:1.6}
+.consent-label a{color:#4a1020;font-weight:500}
+
 /* ── REVEAL ── */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
 .reveal.visible{opacity:1;transform:translateY(0)}
@@ -926,8 +952,15 @@ footer{
           <label class="form-label">Your situation</label>
           <textarea class="form-textarea" placeholder="Budget range, preferred areas, any specific requirements..."></textarea>
         </div>
+        <div class="form-group">
+          <label class="consent-item">
+            <input type="checkbox" id="gdprConsent" required>
+            <span class="consent-box"></span>
+            <span class="consent-label">I agree that my data will be stored and used to respond to my enquiry in accordance with the <a href="datenschutz.html">Privacy Policy (Datenschutzerklärung)</a>. I can request deletion at any time by emailing info@animmobilien.de.</span>
+          </label>
+        </div>
         <button type="submit" class="form-submit">Send message</button>
-        <p class="form-note">We respond within 24 hours · No obligation</p>
+        <p class="form-note">We respond within 24 hours · No obligation · GDPR compliant</p>
       </form>
       <div class="form-success" id="formSuccess">
         <h3>Message received.</h3>
@@ -947,8 +980,9 @@ footer{
     <a href="https://www.instagram.com/a.n.immobilien/" target="_blank">Instagram</a>
     <a href="https://www.facebook.com/profile.php?id=61561377807870" target="_blank">Facebook</a>
     <a href="https://whatsapp.com/channel/placeholder" target="_blank">WhatsApp</a>
+    <a href="datenschutz.html">Datenschutz</a>
   </div>
-  <div class="footer-copy">© 2026 A.N Immobilien · Berlin · <a href="impressum.html" style="color:var(--grey-4);text-decoration:none">Impressum</a></div>
+  <div class="footer-copy">© 2026 A.N Immobilien · Berlin · <a href="impressum.html" style="color:var(--grey-4);text-decoration:none">Impressum</a> · <a href="datenschutz.html" style="color:var(--grey-4);text-decoration:none">Datenschutz</a></div>
 </footer>
 
 <script>
@@ -969,6 +1003,12 @@ function toggleSvc(id) {
 // Form
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
+  const consent = document.getElementById('gdprConsent');
+  if(!consent.checked){
+    consent.closest('.consent-item').style.borderColor='#8b0000';
+    consent.closest('.consent-item').style.background='#fff5f5';
+    return;
+  }
   const btn = this.querySelector('.form-submit');
   btn.textContent = 'Sending...'; btn.disabled = true;
   const checked = [...document.querySelectorAll('input[name="help"]:checked')].map(c => c.value).join(', ');
@@ -981,7 +1021,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
     message: this.querySelector('textarea').value
   };
   try {
-    await fetch('https://script.google.com/macros/s/AKfycbwBubVLoxdZalYLqenn4Cs0Eagdd0H5G1UtovO60tk_V3WeBdHrzkpS-n0QDSClSylh/exec', {
+    await fetch('https://script.google.com/macros/s/AKfycbzjrZlmY8pgPUFg6uH9IT8bbERymrwyuk4SuUHvKBhQNeBMPRco9LECHLRk8k9y3ms/exec', {
       method: 'POST', mode: 'no-cors',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(data)

@@ -9,9 +9,9 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
 <meta name="theme-color" content="#2d0a0a">
-<!-- Bunny Fonts: EU-hosted, GDPR compliant, no data sent to Google -->
-<link rel="preconnect" href="https://fonts.bunny.net">
-<link href="https://fonts.bunny.net/css?family=fraunces:300,300i,400,400i,500,500i|instrument-sans:300,400,500,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Instrument+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -419,7 +419,6 @@ footer{
   <a href="#" class="logo">A.N<span>.</span> Immobilien</a>
   <nav>
     <a href="#services">Services</a>
-    <a href="#properties">Properties</a>
     <a href="#why">About</a>
     <a href="#contact">Contact</a>
     <a href="#contact" class="nav-cta">Get Started</a>
@@ -617,230 +616,6 @@ footer{
 </section>
 
 
-<hr class="divider">
-
-<section class="properties" id="properties">
-  <div class="prop-header reveal">
-    <div>
-      <p class="section-eyebrow">Property pipeline</p>
-      <h2 class="section-title">Current listings.<br><em>Curated for you.</em></h2>
-    </div>
-    <p class="section-sub" style="align-self:flex-end;color:#7a5050">All properties reviewed and assessed by our team. Click any card for full details.</p>
-  </div>
-
-  <div class="prop-filters reveal">
-    <button class="prop-filter active" onclick="filterProps('all')">All (8)</button>
-    <button class="prop-filter" onclick="filterProps('apartment')">Apartments</button>
-    <button class="prop-filter" onclick="filterProps('house')">Houses</button>
-    <button class="prop-filter" onclick="filterProps('land')">Land</button>
-  </div>
-
-  <div class="prop-grid reveal">
-
-    <!-- P001 -->
-    <div class="prop-card" data-type="apartment" onclick="openProp('p001')">
-      <div class="prop-top">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-          <span class="prop-id">P001</span>
-          <span class="prop-badge badge-apartment">Apartment</span>
-        </div>
-        <h3 class="prop-name">3-Zimmer Stephankiez (3.OG)</h3>
-        <p class="prop-location">Moabit (Mitte) · 10559</p>
-      </div>
-      <div class="prop-stats">
-        <div class="prop-stat"><span class="prop-stat-val">67 m²</span><span class="prop-stat-lbl">Size</span></div>
-        <div class="prop-stat"><span class="prop-stat-val">3</span><span class="prop-stat-lbl">Rooms</span></div>
-        <div class="prop-stat"><span class="prop-stat-val">1965</span><span class="prop-stat-lbl">Built</span></div>
-      </div>
-      <div class="prop-bottom">
-        <div><div class="prop-price">€435.500</div><div class="prop-price-m2">€6.500/m²</div></div>
-        <div class="prop-tags">
-          <span class="prop-tag tag-yes">Balcony</span>
-          <span class="prop-tag tag-no">No lift</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- P002 -->
-    <div class="prop-card" data-type="house" onclick="openProp('p002')">
-      <div class="prop-top">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-          <span class="prop-id">P002</span>
-          <span class="prop-badge badge-house">House</span>
-        </div>
-        <h3 class="prop-name">Doppelhaushälfte Kaulsdorf an der Wuhle</h3>
-        <p class="prop-location">Kaulsdorf (Marzahn-Hellersdorf) · 12621</p>
-      </div>
-      <div class="prop-stats">
-        <div class="prop-stat"><span class="prop-stat-val">103 m²</span><span class="prop-stat-lbl">Size</span></div>
-        <div class="prop-stat"><span class="prop-stat-val">4</span><span class="prop-stat-lbl">Rooms</span></div>
-        <div class="prop-stat"><span class="prop-stat-val">1993</span><span class="prop-stat-lbl">Built</span></div>
-      </div>
-      <div class="prop-bottom">
-        <div><div class="prop-price">€499.000</div><div class="prop-price-m2">€4.844/m²</div></div>
-        <div class="prop-tags">
-          <span class="prop-tag tag-yes">Garden</span>
-          <span class="prop-tag tag-yes">Parking</span>
-          <span class="prop-tag tag-flag">Energy F</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- P003 -->
-    <div class="prop-card" data-type="apartment" onclick="openProp('p003')">
-      <div class="prop-top">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-          <span class="prop-id">P003</span>
-          <span class="prop-badge badge-apartment">Apartment</span>
-        </div>
-        <h3 class="prop-name">3-Zimmer Stephankiez (4.OG, möbliert)</h3>
-        <p class="prop-location">Moabit (Mitte) · 10559</p>
-      </div>
-      <div class="prop-stats">
-        <div class="prop-stat"><span class="prop-stat-val">67 m²</span><span class="prop-stat-lbl">Size</span></div>
-        <div class="prop-stat"><span class="prop-stat-val">3</span><span class="prop-stat-lbl">Rooms</span></div>
-        <div class="prop-stat"><span class="prop-stat-val">1965</span><span class="prop-stat-lbl">Built</span></div>
-      </div>
-      <div class="prop-bottom">
-        <div><div class="prop-price">€449.000</div><div class="prop-price-m2">€6.701/m²</div></div>
-        <div class="prop-tags">
-          <span class="prop-tag tag-yes">Furnished</span>
-          <span class="prop-tag tag-yes">Balcony</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- P004 -->
-    <div class="prop-card" data-type="apartment" onclick="openProp('p004')">
-      <div class="prop-top">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-          <span class="prop-id">P004</span>
-          <span class="prop-badge badge-apartment">Apartment</span>
-        </div>
-        <h3 class="prop-name">Neubauwohnung Das Gotland, Prenzlauer Berg</h3>
-        <p class="prop-location">Prenzlauer Berg (Pankow) · 10439</p>
-      </div>
-      <div class="prop-stats">
-        <div class="prop-stat"><span class="prop-stat-val">84 m²</span><span class="prop-stat-lbl">Size</span></div>
-        <div class="prop-stat"><span class="prop-stat-val">3</span><span class="prop-stat-lbl">Rooms</span></div>
-        <div class="prop-stat"><span class="prop-stat-val">2018</span><span class="prop-stat-lbl">Built</span></div>
-      </div>
-      <div class="prop-bottom">
-        <div><div class="prop-price">€639.000</div><div class="prop-price-m2">€7.589/m²</div></div>
-        <div class="prop-tags">
-          <span class="prop-tag tag-yes">Lift</span>
-          <span class="prop-tag tag-yes">Neubau</span>
-          <span class="prop-tag tag-yes">Energy C</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- P005 -->
-    <div class="prop-card" data-type="apartment" onclick="openProp('p005')">
-      <div class="prop-top">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-          <span class="prop-id">P005</span>
-          <span class="prop-badge badge-apartment">Apartment</span>
-        </div>
-        <h3 class="prop-name">Terrassenwohnung Teichstr. 50 (Gate Community)</h3>
-        <p class="prop-location">Reinickendorf · 13407</p>
-      </div>
-      <div class="prop-stats">
-        <div class="prop-stat"><span class="prop-stat-val">149 m²</span><span class="prop-stat-lbl">Size</span></div>
-        <div class="prop-stat"><span class="prop-stat-val">3</span><span class="prop-stat-lbl">Rooms</span></div>
-        <div class="prop-stat"><span class="prop-stat-val">1973</span><span class="prop-stat-lbl">Built</span></div>
-      </div>
-      <div class="prop-bottom">
-        <div><div class="prop-price">€585.000</div><div class="prop-price-m2">€3.926/m²</div></div>
-        <div class="prop-tags">
-          <span class="prop-tag tag-yes">50m² Terrace</span>
-          <span class="prop-tag tag-yes">Energy B</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- P006 -->
-    <div class="prop-card" data-type="apartment" onclick="openProp('p006')">
-      <div class="prop-top">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-          <span class="prop-id">P006</span>
-          <span class="prop-badge badge-apartment">Apartment</span>
-        </div>
-        <h3 class="prop-name">Wohnung Holländerstraße 58, Wedding</h3>
-        <p class="prop-location">Wedding (Mitte) · 13407</p>
-      </div>
-      <div class="prop-stats">
-        <div class="prop-stat"><span class="prop-stat-val">68 m²</span><span class="prop-stat-lbl">Size</span></div>
-        <div class="prop-stat"><span class="prop-stat-val">2</span><span class="prop-stat-lbl">Rooms</span></div>
-        <div class="prop-stat"><span class="prop-stat-val">1969</span><span class="prop-stat-lbl">Built</span></div>
-      </div>
-      <div class="prop-bottom">
-        <div><div class="prop-price">€259.500</div><div class="prop-price-m2">€3.792/m²</div></div>
-        <div class="prop-tags">
-          <span class="prop-tag tag-yes">Lift</span>
-          <span class="prop-tag tag-flag">Needs Reno</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- P007 -->
-    <div class="prop-card" data-type="apartment" onclick="openProp('p007')">
-      <div class="prop-top">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-          <span class="prop-id">P007</span>
-          <span class="prop-badge badge-apartment">Apartment</span>
-        </div>
-        <h3 class="prop-name">Altbauwohnung Güntzelkiez, Charlottenburg</h3>
-        <p class="prop-location">Charlottenburg-Wilmersdorf · 10717</p>
-      </div>
-      <div class="prop-stats">
-        <div class="prop-stat"><span class="prop-stat-val">193 m²</span><span class="prop-stat-lbl">Size</span></div>
-        <div class="prop-stat"><span class="prop-stat-val">7</span><span class="prop-stat-lbl">Rooms</span></div>
-        <div class="prop-stat"><span class="prop-stat-val">1914</span><span class="prop-stat-lbl">Built</span></div>
-      </div>
-      <div class="prop-bottom">
-        <div><div class="prop-price">€1.399.000</div><div class="prop-price-m2">€7.248/m²</div></div>
-        <div class="prop-tags">
-          <span class="prop-tag tag-yes">No Commission</span>
-          <span class="prop-tag tag-yes">Altbau</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- P008 -->
-    <div class="prop-card" data-type="land" onclick="openProp('p008')">
-      <div class="prop-top">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-          <span class="prop-id">P008</span>
-          <span class="prop-badge badge-land">Land</span>
-        </div>
-        <h3 class="prop-name">Baugrundstück Mövenstraße 2, Potsdam</h3>
-        <p class="prop-location">Klein Glienicke (Potsdam) · 14482</p>
-      </div>
-      <div class="prop-stats">
-        <div class="prop-stat"><span class="prop-stat-val">~1.000 m²</span><span class="prop-stat-lbl">Plot</span></div>
-        <div class="prop-stat"><span class="prop-stat-val">2 DHH</span><span class="prop-stat-lbl">Permitted</span></div>
-        <div class="prop-stat"><span class="prop-stat-val">Potsdam</span><span class="prop-stat-lbl">Location</span></div>
-      </div>
-      <div class="prop-bottom">
-        <div><div class="prop-price">€1.300.000</div><div class="prop-price-m2">Planning granted</div></div>
-        <div class="prop-tags">
-          <span class="prop-tag tag-yes">Baugenehmigung</span>
-          <span class="prop-tag tag-yes">Garden</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- Property Modals -->
-<div class="prop-modal-overlay" id="propModal" onclick="closePropModal(event)">
-  <div class="prop-modal" id="propModalContent">
-    <button class="prop-modal-close" onclick="closeProp()">×</button>
-    <div id="propModalInner"></div>
-  </div>
-</div>
 
 <hr class="divider">
 
@@ -941,17 +716,13 @@ footer{
   <div class="footer-logo">A.N<span>.</span> Immobilien</div>
   <div class="footer-links">
     <a href="#services">Services</a>
-    <a href="#properties">Properties</a>
     <a href="#why">About</a>
     <a href="#contact">Contact</a>
     <a href="https://www.instagram.com/a.n.immobilien/" target="_blank">Instagram</a>
     <a href="https://www.facebook.com/profile.php?id=61561377807870" target="_blank">Facebook</a>
     <a href="https://whatsapp.com/channel/placeholder" target="_blank">WhatsApp</a>
-    <a href="impressum.html">Impressum</a>
-    <a href="datenschutz.html">Datenschutz</a>
-    <a href="agb.html">AGB</a>
   </div>
-  <div class="footer-copy">© 2026 A.N Immobilien · Berlin · <a href="impressum.html" style="color:var(--grey-4);text-decoration:none">Impressum</a> · <a href="datenschutz.html" style="color:var(--grey-4);text-decoration:none">Datenschutz</a> · <a href="agb.html" style="color:var(--grey-4);text-decoration:none">AGB</a></div>
+  <div class="footer-copy">© 2026 A.N Immobilien · Berlin · <a href="impressum.html" style="color:var(--grey-4);text-decoration:none">Impressum</a></div>
 </footer>
 
 <script>

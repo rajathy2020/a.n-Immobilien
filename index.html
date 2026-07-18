@@ -9,231 +9,136 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
 <meta name="theme-color" content="#2d0a0a">
-<!-- Bunny Fonts: EU-hosted, GDPR compliant, no data sent to Google -->
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link href="https://fonts.bunny.net/css?family=fraunces:300,300i,400,400i,500,500i|instrument-sans:300,400,500,600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#2d0a0a;
-  --bg2:#3d1010;
-  --white:#f7f0f0;
-  --black:#f5eeee;
-  --grey-1:#f0e4e4;
-  --grey-2:#d4b8b8;
-  --grey-3:#b08080;
-  --grey-4:#7a5050;
-  --grey-5:#4a2828;
-  --gold:#e8a0a0;
-  --gold-light:#c06060;
-  --gold-bg:#3d1818;
-  --serif:'Fraunces',Georgia,serif;
-  --sans:'Instrument Sans',system-ui,sans-serif;
-  --radius:16px;
+  --bg:#2d0a0a;--bg2:#3d1010;--white:#f7f0f0;--black:#f5eeee;
+  --grey-1:#f0e4e4;--grey-2:#d4b8b8;--grey-3:#b08080;--grey-4:#7a5050;--grey-5:#4a2828;
+  --gold:#e8a0a0;--gold-light:#c06060;--gold-bg:#3d1818;
+  --serif:'Fraunces',Georgia,serif;--sans:'Instrument Sans',system-ui,sans-serif;--radius:16px;
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--black);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:hidden}
 
-/* ── HEADER ── */
-header{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:0 60px;height:72px;
-  display:flex;justify-content:space-between;align-items:center;
-  background:rgba(74,16,32,0.94);backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(0,0,0,0.06);
-}
+/* HEADER */
+header{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 60px;height:72px;display:flex;justify-content:space-between;align-items:center;background:rgba(45,10,10,0.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(232,160,160,0.08)}
 .logo{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--black);text-decoration:none;letter-spacing:0.02em}
 .logo span{color:var(--gold)}
 nav{display:flex;gap:36px;align-items:center}
 nav a{font-size:13px;font-weight:400;letter-spacing:0.06em;color:var(--grey-3);text-decoration:none;text-transform:uppercase;transition:color .25s}
 nav a:hover{color:var(--black)}
-.nav-cta{
-  padding:10px 22px;background:var(--gold);color:#1a0a0a;
-  font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
-  text-decoration:none;font-weight:600;border-radius:100px;
-  transition:background .25s,transform .2s;
-}
+.nav-cta{padding:10px 22px;background:var(--gold);color:#1a0a0a;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;font-weight:600;border-radius:100px;transition:background .25s,transform .2s}
 .nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
 
-/* ── HERO ── */
-.hero{
-  min-height:100vh;padding:140px 60px 100px;
-  display:grid;grid-template-columns:1fr 1fr;gap:80px;
-  align-items:center;position:relative;overflow:hidden;
-}
-.hero-bg-circle{
-  position:absolute;top:-200px;right:-200px;
-  width:700px;height:700px;border-radius:50%;
-  background:radial-gradient(circle,rgba(192,96,96,0.15) 0%,transparent 70%);
-  pointer-events:none;
-}
-.hero-eyebrow{
-  font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:28px;display:flex;align-items:center;gap:12px;
-  opacity:0;animation:fadeUp .7s .1s forwards;
-}
+/* HERO */
+.hero{min-height:100vh;padding:140px 60px 100px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;overflow:hidden}
+.hero-bg-circle{position:absolute;top:-200px;right:-200px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(192,96,96,0.15) 0%,transparent 70%);pointer-events:none}
+.hero-eyebrow{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;display:flex;align-items:center;gap:12px;opacity:0;animation:fadeUp .7s .1s forwards}
 .hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold)}
-.hero h1{
-  font-family:var(--serif);font-size:clamp(48px,6vw,88px);
-  font-weight:300;line-height:1.05;letter-spacing:-0.02em;
-  margin-bottom:28px;opacity:0;animation:fadeUp .7s .25s forwards;
-}
+.hero h1{font-family:var(--serif);font-size:clamp(48px,6vw,88px);font-weight:300;line-height:1.05;letter-spacing:-0.02em;margin-bottom:28px;opacity:0;animation:fadeUp .7s .25s forwards}
 .hero h1 em{font-style:italic;color:var(--gold)}
-.hero-sub{
-  font-size:17px;color:var(--grey-3);line-height:1.75;
-  max-width:420px;margin-bottom:44px;
-  opacity:0;animation:fadeUp .7s .4s forwards;
-}
-.hero-actions{
-  display:flex;gap:16px;align-items:center;
-  opacity:0;animation:fadeUp .7s .55s forwards;
-}
-.btn-dark{
-  padding:15px 36px;background:var(--gold);color:#1a0a0a;
-  font-size:13px;letter-spacing:0.07em;text-transform:uppercase;
-  text-decoration:none;font-weight:600;border-radius:100px;
-  transition:background .25s,transform .2s,box-shadow .25s;display:inline-block;
-  box-shadow:0 4px 20px rgba(232,160,160,0.3);
-}
+.hero-sub{font-size:17px;color:var(--grey-3);line-height:1.75;max-width:420px;margin-bottom:44px;opacity:0;animation:fadeUp .7s .4s forwards}
+.hero-actions{display:flex;gap:16px;align-items:center;opacity:0;animation:fadeUp .7s .55s forwards}
+.btn-dark{padding:15px 36px;background:var(--gold);color:#1a0a0a;font-size:13px;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;font-weight:600;border-radius:100px;transition:background .25s,transform .2s,box-shadow .25s;display:inline-block;box-shadow:0 4px 20px rgba(232,160,160,0.3)}
 .btn-dark:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 6px 28px rgba(232,160,160,0.4)}
-.btn-outline{
-  padding:15px 36px;border:1.5px solid rgba(0,0,0,0.15);color:var(--grey-2);
-  font-size:13px;letter-spacing:0.07em;text-transform:uppercase;
-  text-decoration:none;font-weight:400;border-radius:100px;
-  transition:border-color .25s,color .25s;display:inline-block;
-}
-.btn-outline:hover{border-color:var(--black);color:var(--black)}
-
-/* Hero right — floating card */
+.btn-outline{padding:15px 36px;border:1.5px solid rgba(232,160,160,0.2);color:var(--grey-2);font-size:13px;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;font-weight:400;border-radius:100px;transition:border-color .25s,color .25s;display:inline-block}
+.btn-outline:hover{border-color:var(--gold);color:var(--black)}
 .hero-visual{opacity:0;animation:fadeUp .7s .5s forwards}
-.hero-card{
-  background:rgba(255,255,255,0.06);border-radius:24px;
-  padding:40px;box-shadow:0 24px 80px rgba(0,0,0,0.3);
-  position:relative;overflow:hidden;
-  border:1px solid rgba(232,160,160,0.2);
-  backdrop-filter:blur(10px);
-}
-.hero-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--gold),var(--gold-light));
-}
+.hero-card{background:rgba(255,255,255,0.06);border-radius:24px;padding:40px;box-shadow:0 24px 80px rgba(0,0,0,0.3);position:relative;overflow:hidden;border:1px solid rgba(232,160,160,0.2);backdrop-filter:blur(10px)}
+.hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
 .hero-card-label{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;font-weight:500}
 .hero-steps{list-style:none;padding:0}
-.hero-steps li{
-  display:flex;align-items:flex-start;gap:18px;
-  padding:18px 0;border-bottom:1px solid rgba(232,160,160,0.12);
-}
+.hero-steps li{display:flex;align-items:flex-start;gap:18px;padding:18px 0;border-bottom:1px solid rgba(232,160,160,0.12)}
 .hero-steps li:last-child{border-bottom:none}
-.step-dot{
-  width:32px;height:32px;border-radius:50%;
-  background:rgba(232,160,160,0.12);border:1px solid rgba(232,160,160,0.3);
-  display:flex;align-items:center;justify-content:center;
-  font-size:11px;font-weight:600;color:var(--gold);flex-shrink:0;margin-top:2px;
-}
+.step-dot{width:32px;height:32px;border-radius:50%;background:rgba(232,160,160,0.12);border:1px solid rgba(232,160,160,0.3);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:var(--gold);flex-shrink:0;margin-top:2px}
 .step-text strong{display:block;font-size:15px;font-weight:500;color:var(--black);margin-bottom:3px}
 .step-text span{font-size:13px;color:var(--grey-3)}
 
-/* ── SECTION BASE ── */
+/* SECTIONS */
 section{padding:100px 60px}
-.section-eyebrow{
-  font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px;
-}
+.section-eyebrow{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px}
 .section-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold)}
-.section-title{
-  font-family:var(--serif);font-size:clamp(32px,4vw,56px);
-  font-weight:300;line-height:1.1;letter-spacing:-0.01em;margin-bottom:16px;
-}
+.section-title{font-family:var(--serif);font-size:clamp(32px,4vw,56px);font-weight:300;line-height:1.1;letter-spacing:-0.01em;margin-bottom:16px}
 .section-title em{font-style:italic;color:var(--grey-3)}
-.section-sub{font-size:16px;color:var(--grey-3);max-width:520px;line-height:1.7}
+.section-sub{font-size:16px;color:var(--grey-3);max-width:540px;line-height:1.7}
 .divider{height:1px;background:rgba(0,0,0,0.07);border:none;margin:0}
 
-/* ── SERVICES ── */
+/* ── SERVICES — new card style ── */
 .services{background:var(--white)}
-.services-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.services-header{margin-bottom:56px}
+.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px}
 
 .svc-card{
-  background:var(--bg);border-radius:var(--radius);
-  padding:36px;border:1.5px solid transparent;
-  transition:border-color .3s,box-shadow .3s,transform .3s;
-  cursor:pointer;position:relative;overflow:hidden;
+  background:#fff;border-radius:20px;padding:40px;
+  border:1.5px solid rgba(74,16,32,0.1);
+  cursor:pointer;position:relative;
+  transition:border-color .25s,box-shadow .25s,transform .25s;
+  display:flex;flex-direction:column;justify-content:space-between;min-height:220px;
 }
-.svc-card:hover{
-  border-color:rgba(184,147,62,0.25);
-  box-shadow:0 8px 40px rgba(0,0,0,0.07);
-  transform:translateY(-3px);
-}
-.svc-card.open{
-  border-color:rgba(184,147,62,0.35);
-  background:var(--gold-bg);
-  box-shadow:0 12px 48px rgba(184,147,62,0.12);
-}
-.svc-card.open .svc-step{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--grey-4);margin-bottom:8px}
-.svc-name{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--black);margin-bottom:10px;line-height:1.2}
-.svc-question{font-size:13px;color:var(--grey-3);font-style:italic;line-height:1.5;margin-bottom:20px}
-.svc-footer{display:flex;justify-content:space-between;align-items:center}
-.svc-price{font-size:20px;font-weight:500;color:var(--black);font-family:var(--serif)}
-.svc-toggle{
-  width:32px;height:32px;border-radius:50%;
-  border:1.5px solid rgba(0,0,0,0.12);
-  display:flex;align-items:center;justify-content:center;
-  font-size:18px;color:var(--grey-3);
-  transition:all .3s;line-height:1;
-}
-.svc-card.open .svc-toggle{background:var(--gold);border-color:var(--gold);color:var(--white);transform:rotate(45deg)}
+.svc-card:hover{border-color:rgba(74,16,32,0.35);box-shadow:0 12px 48px rgba(74,16,32,0.1);transform:translateY(-3px)}
+.svc-card.featured{background:var(--bg);border-color:rgba(232,160,160,0.25)}
+.svc-card.featured:hover{border-color:var(--gold);box-shadow:0 12px 48px rgba(232,160,160,0.15)}
 
-/* Expand body */
-.svc-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(0.4,0,0.2,1)}
-.svc-card.open .svc-body{max-height:500px}
-.svc-body-inner{padding-top:20px;border-top:1px solid rgba(0,0,0,0.08);margin-top:20px}
-.svc-desc{font-size:13px;color:var(--grey-2);line-height:1.8;margin-bottom:14px}
-.svc-list{list-style:none;padding:0;margin-bottom:16px}
-.svc-list li{
-  font-size:13px;color:var(--grey-3);padding:6px 0;
-  border-bottom:1px solid rgba(0,0,0,0.05);
-  display:flex;gap:10px;align-items:flex-start;line-height:1.5;
-}
-.svc-list li:last-child{border-bottom:none}
-.svc-list li::before{content:'✓';color:var(--gold);font-size:12px;flex-shrink:0;margin-top:2px;font-weight:600}
-.svc-book{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:10px 20px;background:#4a1020;color:#ffffff;
-  border-radius:100px;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;
-  text-decoration:none;font-weight:600;transition:background .25s,transform .2s;
-}
-.svc-book:hover{background:#3a0c18;transform:translateY(-1px)}
+.svc-card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
+.svc-tag{font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:100px;font-weight:500}
+.tag-advisory{background:#fdf0f2;color:#4a1020}
+.tag-flagship{background:rgba(232,160,160,0.15);color:var(--gold)}
+.svc-arrow{width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(74,16,32,0.15);display:flex;align-items:center;justify-content:center;font-size:16px;color:#4a1020;transition:all .25s;flex-shrink:0}
+.svc-card.featured .svc-arrow{border-color:rgba(232,160,160,0.3);color:var(--gold)}
+.svc-card:hover .svc-arrow{background:#4a1020;color:#fff;border-color:#4a1020}
+.svc-card.featured:hover .svc-arrow{background:var(--gold);color:#1a0a0a;border-color:var(--gold)}
 
-/* ── WHY ── */
-.why{background:var(--bg)}
-.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:60px;border-radius:20px;overflow:hidden;border:1px solid rgba(0,0,0,0.06)}
-.why-item{background:var(--white);padding:44px;transition:background .3s}
-.why-item:hover{background:var(--gold-bg)}
-.why-icon{font-size:32px;margin-bottom:20px;display:block}
-.why-item h4{font-family:var(--serif);font-size:22px;font-weight:400;margin-bottom:10px}
-.why-item p{font-size:14px;color:var(--grey-3);line-height:1.75}
+.svc-name{font-family:var(--serif);font-size:28px;font-weight:400;color:#1a0a10;line-height:1.15;margin-bottom:10px}
+.svc-card.featured .svc-name{color:var(--black)}
+.svc-name em{font-style:italic;color:#4a1020}
+.svc-card.featured .svc-name em{color:var(--gold)}
+.svc-tagline{font-size:14px;color:#7a5050;line-height:1.6}
+.svc-card.featured .svc-tagline{color:var(--grey-3)}
 
-/* ── CONTACT ── */
+.svc-card-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:20px;border-top:1px solid rgba(74,16,32,0.08)}
+.svc-card.featured .svc-card-bottom{border-top-color:rgba(232,160,160,0.12)}
+.svc-price{font-family:var(--serif);font-size:24px;font-weight:400;color:#1a0a10}
+.svc-card.featured .svc-price{color:var(--black)}
+.svc-cta-text{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#7a5050}
+.svc-card.featured .svc-cta-text{color:var(--grey-4)}
+
+/* SERVICE MODAL */
+.svc-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:500;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(4px)}
+.svc-modal-overlay.open{display:flex}
+.svc-modal{background:var(--white);border-radius:24px;max-width:640px;width:100%;max-height:90vh;overflow-y:auto;position:relative}
+.svc-modal-close{position:absolute;top:20px;right:20px;width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(0,0,0,0.1);background:var(--white);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#888;transition:all .2s;z-index:1}
+.svc-modal-close:hover{background:#4a1020;color:#fff;border-color:#4a1020}
+.svc-modal-header{padding:40px 40px 28px;border-bottom:1px solid rgba(0,0,0,0.07)}
+.svc-modal-tag{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#4a1020;margin-bottom:12px;font-weight:500}
+.svc-modal-name{font-family:var(--serif);font-size:34px;font-weight:300;color:#1a0a10;line-height:1.15;margin-bottom:8px}
+.svc-modal-name em{font-style:italic;color:#4a1020}
+.svc-modal-price{font-family:var(--serif);font-size:22px;color:#4a1020;margin-bottom:0}
+.svc-modal-body{padding:32px 40px 40px}
+.svc-modal-desc{font-size:15px;color:#4a2030;line-height:1.8;margin-bottom:28px}
+.svc-modal-section-title{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#4a1020;font-weight:600;margin-bottom:14px}
+.svc-modal-list{list-style:none;padding:0;margin-bottom:28px}
+.svc-modal-list li{font-size:14px;color:#4a2030;padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.06);display:flex;gap:12px;align-items:flex-start;line-height:1.5}
+.svc-modal-list li:last-child{border-bottom:none}
+.svc-modal-list li::before{content:'→';color:#4a1020;font-size:13px;flex-shrink:0;margin-top:1px}
+.svc-modal-included{background:#fdf5f5;border-radius:12px;padding:20px 24px;margin-bottom:28px}
+.svc-modal-included p{font-size:13px;color:#4a2030;line-height:1.7}
+.svc-modal-included strong{color:#1a0a10}
+.svc-modal-cta{display:block;width:100%;padding:16px;background:#4a1020;color:#ffffff;border:none;border-radius:100px;font-family:var(--sans);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;cursor:pointer;transition:background .25s;text-align:center;text-decoration:none}
+.svc-modal-cta:hover{background:#3a0c18}
+
+/* CONTACT */
 .contact{background:#fdf8f9}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:64px;align-items:start}
-.contact-info h3{font-family:var(--serif);font-size:26px;font-weight:400;margin-bottom:20px;line-height:1.4;color:#1a0a10}
-.contact-info p{font-size:14px;color:#4a2030;line-height:1.8;margin-bottom:36px}
 .contact-row{padding:18px 0;border-top:1px solid rgba(0,0,0,0.07);display:flex;gap:20px}
 .contact-lbl{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#7a4050;min-width:80px;margin-top:2px}
 .contact-val{font-size:14px;color:#4a1020}
 .contact-val a{color:var(--gold);text-decoration:none}
 .contact-val a:hover{text-decoration:underline}
-
-/* Form */
 .form-group{margin-bottom:20px}
 .form-label{display:block;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#4a2030;margin-bottom:8px}
-.form-input,.form-select,.form-textarea{
-  width:100%;padding:13px 16px;
-  background:#fdf8f9;border:1.5px solid rgba(74,16,32,0.12);
-  border-radius:10px;color:#1a0a0a;font-family:var(--sans);
-  font-size:14px;font-weight:300;outline:none;transition:border-color .25s,background .25s;
-  -webkit-appearance:none;
-}
+.form-input,.form-select,.form-textarea{width:100%;padding:13px 16px;background:#fdf8f9;border:1.5px solid rgba(74,16,32,0.12);border-radius:10px;color:#1a0a0a;font-family:var(--sans);font-size:14px;font-weight:300;outline:none;transition:border-color .25s,background .25s;-webkit-appearance:none}
 .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:#4a1020;background:#ffffff}
 .form-input::placeholder,.form-textarea::placeholder{color:var(--grey-5)}
 .form-select{cursor:pointer;color:var(--grey-3)}
@@ -241,58 +146,16 @@ section{padding:100px 60px}
 .form-textarea{resize:none;min-height:100px;line-height:1.6}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .checkbox-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
-.check-item{
-  display:flex;align-items:center;gap:10px;
-  padding:11px 14px;border:1.5px solid rgba(74,16,32,0.1);
-  border-radius:10px;cursor:pointer;transition:border-color .25s,background .25s;
-  background:#fdf8f9;
-}
+.check-item{display:flex;align-items:center;gap:10px;padding:11px 14px;border:1.5px solid rgba(74,16,32,0.1);border-radius:10px;cursor:pointer;transition:border-color .25s,background .25s;background:#fdf8f9}
 .check-item:hover{border-color:rgba(74,16,32,0.3)}
 .check-item input{display:none}
 .check-item:has(input:checked){border-color:#4a1020;background:#f0d0d8}
-.check-box{
-  width:16px;height:16px;flex-shrink:0;
-  border:1.5px solid rgba(0,0,0,0.2);border-radius:4px;
-  position:relative;transition:all .2s;background:var(--white);
-}
+.check-box{width:16px;height:16px;flex-shrink:0;border:1.5px solid rgba(0,0,0,0.2);border-radius:4px;position:relative;transition:all .2s;background:var(--white)}
 .check-item:has(input:checked) .check-box{background:#4a1020;border-color:#4a1020}
-.check-box::after{
-  content:'✓';position:absolute;top:50%;left:50%;
-  transform:translate(-50%,-50%);font-size:10px;color:var(--white);
-  opacity:0;transition:opacity .2s;font-weight:700;
-}
+.check-box::after{content:'✓';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:10px;color:var(--white);opacity:0;transition:opacity .2s;font-weight:700}
 .check-item:has(input:checked) .check-box::after{opacity:1}
 .check-label{font-size:13px;color:#2a0a10;font-weight:400}
 .check-item:has(input:checked) .check-label{color:#1a0008;font-weight:600}
-.form-submit{
-  width:100%;padding:16px;margin-top:8px;
-  background:#4a1020;color:#ffffff;border:none;
-  border-radius:100px;font-family:var(--sans);
-  font-size:13px;letter-spacing:0.08em;text-transform:uppercase;
-  font-weight:600;cursor:pointer;transition:background .25s,transform .2s;
-}
-.form-submit:hover{background:#3a0c18;transform:translateY(-1px)}
-.form-note{margin-top:12px;font-size:12px;color:#7a4050;text-align:center}
-.form-success{display:none;text-align:center;padding:60px 20px}
-.form-success.show{display:block}
-.form-success h3{font-family:var(--serif);font-size:30px;font-weight:300;margin-bottom:12px}
-.form-success p{font-size:14px;color:var(--grey-3)}
-
-/* ── FOOTER ── */
-footer{
-  padding:40px 60px;border-top:1px solid rgba(0,0,0,0.07);
-  display:flex;justify-content:space-between;align-items:center;
-  background:var(--white);
-}
-.footer-logo{font-family:var(--serif);font-size:18px;font-weight:300;color:var(--grey-3)}
-.footer-logo span{color:var(--gold)}
-.footer-links{display:flex;gap:28px}
-.footer-links a{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-4);text-decoration:none;transition:color .25s}
-.footer-links a:hover{color:var(--black)}
-.footer-copy{font-size:12px;color:var(--grey-4)}
-
-
-/* GDPR consent */
 .consent-item{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border:1.5px solid rgba(74,16,32,0.15);border-radius:10px;background:#fdf8f9;margin-top:4px;transition:border-color .25s;cursor:pointer}
 .consent-item:hover{border-color:rgba(74,16,32,0.3)}
 .consent-item input{display:none}
@@ -303,32 +166,92 @@ footer{
 .consent-item:has(input:checked) .consent-box::after{opacity:1}
 .consent-label{font-size:12px;color:#4a2030;line-height:1.6}
 .consent-label a{color:#4a1020;font-weight:500}
-/* ── REVEAL ── */
+.form-submit{width:100%;padding:16px;margin-top:8px;background:#4a1020;color:#ffffff;border:none;border-radius:100px;font-family:var(--sans);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;cursor:pointer;transition:background .25s,transform .2s}
+.form-submit:hover{background:#3a0c18;transform:translateY(-1px)}
+.form-note{margin-top:12px;font-size:12px;color:#7a4050;text-align:center}
+.form-success{display:none;text-align:center;padding:60px 20px}
+.form-success.show{display:block}
+.form-success h3{font-family:var(--serif);font-size:30px;font-weight:300;margin-bottom:12px}
+.form-success p{font-size:14px;color:var(--grey-3)}
+
+/* FOOTER */
+footer{padding:40px 60px;border-top:1px solid rgba(0,0,0,0.07);display:flex;justify-content:space-between;align-items:center;background:var(--white)}
+.footer-logo{font-family:var(--serif);font-size:18px;font-weight:300;color:var(--grey-3)}
+.footer-logo span{color:var(--gold)}
+.footer-links{display:flex;gap:28px}
+.footer-links a{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-4);text-decoration:none;transition:color .25s}
+.footer-links a:hover{color:var(--black)}
+.footer-copy{font-size:12px;color:var(--grey-4)}
+
+
+/* ── PROCESS ── */
+.process{background:#fdf8f9;padding:100px 60px}
+.process-header{margin-bottom:0}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+
+.process-card{
+  background:#fff;border-radius:20px;padding:32px;
+  border:1.5px solid rgba(74,16,32,0.09);
+  transition:border-color .25s,box-shadow .25s,transform .25s;
+  display:flex;flex-direction:column;gap:0;
+  cursor:default;
+}
+.process-card:hover{border-color:rgba(74,16,32,0.3);box-shadow:0 10px 40px rgba(74,16,32,0.08);transform:translateY(-4px)}
+
+.process-card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px}
+.process-icon{
+  width:52px;height:52px;border-radius:14px;
+  background:#fdf0f2;display:flex;align-items:center;justify-content:center;
+  color:#4a1020;flex-shrink:0;
+}
+.process-arrow{
+  width:32px;height:32px;border-radius:50%;
+  border:1.5px solid rgba(74,16,32,0.12);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;color:#4a1020;
+  transition:all .25s;
+}
+.process-card:hover .process-arrow{background:#4a1020;color:#fff;border-color:#4a1020}
+
+.process-title{font-family:var(--serif);font-size:26px;font-weight:400;color:#1a0a10;margin-bottom:10px;line-height:1.15}
+.process-desc{font-size:13px;color:#7a5050;line-height:1.75;flex:1;margin-bottom:20px}
+.process-tag{
+  display:inline-block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:#4a1020;background:#fdf0f2;padding:4px 12px;border-radius:100px;font-weight:500;
+  align-self:flex-start;
+}
+
+@media(max-width:960px){
+  .process{padding:72px 24px}
+  .process-grid{grid-template-columns:1fr 1fr;gap:12px}
+}
+@media(max-width:600px){
+  .process-grid{grid-template-columns:1fr}
+}
+
+/* REVEAL */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-delay-1{transition-delay:.1s}
 .reveal-delay-2{transition-delay:.2s}
-.reveal-delay-3{transition-delay:.3s}
-
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
-/* ── MOBILE ── */
+/* MOBILE */
 @media(max-width:960px){
   header{padding:0 24px}
   nav a:not(.nav-cta){display:none}
   .hero{grid-template-columns:1fr;padding:120px 24px 60px;gap:48px}
   .hero-visual{display:none}
   section{padding:72px 24px}
-  .services-header{flex-direction:column;gap:20px;align-items:flex-start}
   .services-grid{grid-template-columns:1fr}
-  .why-grid{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr;gap:48px}
   .form-row{grid-template-columns:1fr}
   .checkbox-grid{grid-template-columns:1fr}
   footer{flex-direction:column;gap:20px;text-align:center;padding:32px 24px}
   .footer-links{flex-wrap:wrap;justify-content:center}
+  .svc-modal{border-radius:16px}
+  .svc-modal-header,.svc-modal-body{padding:24px}
 }
-
 </style>
 </head>
 <body>
@@ -336,6 +259,7 @@ footer{
 <header>
   <a href="#" class="logo">A.N<span>.</span> Immobilien</a>
   <nav>
+    <a href="#process">How it works</a>
     <a href="#services">Services</a>
     <a href="about.html">About</a>
     <a href="#contact">Contact</a>
@@ -359,22 +283,10 @@ footer{
     <div class="hero-card">
       <p class="hero-card-label">Your buying journey</p>
       <ul class="hero-steps">
-        <li>
-          <span class="step-dot">01</span>
-          <div class="step-text"><strong>Find the right property</strong><span>Curated shortlists, no wasted weekends</span></div>
-        </li>
-        <li>
-          <span class="step-dot">02</span>
-          <div class="step-text"><strong>Evaluate thoroughly</strong><span>Price, financing, risks — all checked</span></div>
-        </li>
-        <li>
-          <span class="step-dot">03</span>
-          <div class="step-text"><strong>Close with confidence</strong><span>Notary, contracts, Grundbuch handled</span></div>
-        </li>
-        <li>
-          <span class="step-dot">04</span>
-          <div class="step-text"><strong>Move in ready</strong><span>Renovation assessment & trusted contractors</span></div>
-        </li>
+        <li><span class="step-dot">01</span><div class="step-text"><strong>Find the right property</strong><span>Curated shortlists, no wasted weekends</span></div></li>
+        <li><span class="step-dot">02</span><div class="step-text"><strong>Know the true price</strong><span>Independent assessment before you offer</span></div></li>
+        <li><span class="step-dot">03</span><div class="step-text"><strong>Check every document</strong><span>Grundbuch, WEG, risks — all reviewed</span></div></li>
+        <li><span class="step-dot">04</span><div class="step-text"><strong>Close with confidence</strong><span>Notary, contracts, key handover</span></div></li>
       </ul>
     </div>
   </div>
@@ -382,157 +294,127 @@ footer{
 
 <hr class="divider">
 
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="process-header reveal">
+    <p class="section-eyebrow" style="color:#4a1020">How it works</p>
+    <h2 class="section-title" style="color:#1a0008">The support around<br><em style="color:#4a1020">every step.</em></h2>
+    <p class="section-sub" style="color:#7a5050;margin-top:16px">Most buyers go through this alone. You don't have to.</p>
+  </div>
+
+  <div class="process-grid reveal" style="margin-top:48px">
+
+    <div class="process-card">
+      <div class="process-card-top">
+        <div class="process-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M17.5 17.5L23 23" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+      <h3 class="process-title">Search</h3>
+      <p class="process-desc">We do the property hunt for you — curated shortlists based on your exact criteria, no wasted weekends on wrong listings.</p>
+      <div class="process-tag">Part of Saathi</div>
+    </div>
+
+    <div class="process-card">
+      <div class="process-card-top">
+        <div class="process-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M4 14h20M14 4l10 10-10 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      <h3 class="process-title">Evaluate</h3>
+      <p class="process-desc">We tell you what the property is actually worth, flag every hidden risk in the documents, and prepare your offer.</p>
+      <div class="process-tag">True Price · Saathi</div>
+    </div>
+
+    <div class="process-card">
+      <div class="process-card-top">
+        <div class="process-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect x="4" y="6" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M4 11h20" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M9 16h4M9 19h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+      <h3 class="process-title">Finance Support</h3>
+      <p class="process-desc">We review your mortgage readiness as a German bank would, prepare your documents, and connect you with the right broker.</p>
+      <div class="process-tag">Part of Saathi</div>
+    </div>
+
+    <div class="process-card">
+      <div class="process-card-top">
+        <div class="process-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M5 13l6 6L23 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      <h3 class="process-title">Close</h3>
+      <p class="process-desc">We coordinate the notary, review the Kaufvertrag, track the Grundbuch transfer, and hand you your keys.</p>
+      <div class="process-tag">Part of Saathi</div>
+    </div>
+
+  </div>
+</section>
+
+
 <!-- SERVICES -->
 <section class="services" id="services">
   <div class="services-header reveal">
-    <div>
-      <p class="section-eyebrow">Our services</p>
-      <h2 class="section-title">Six services.<br><em>One clear journey.</em></h2>
-    </div>
-    <p class="section-sub" style="align-self:flex-end">Each service can be booked independently, or follow the full path for complete peace of mind.</p>
+    <p class="section-eyebrow">Our services</p>
+    <h2 class="section-title">Two services.<br><em>One clear purpose.</em></h2>
+    <p class="section-sub" style="margin-top:16px">The German property market was not designed for Indian expats. We were. Book only what you need — or hand us the whole journey.</p>
   </div>
 
   <div class="services-grid">
 
-    <div class="svc-card reveal" id="svc-scouting" onclick="toggleSvc('svc-scouting')">
-      <h3 class="svc-name">Scouting</h3>
-      <p class="svc-question">"How do I find the right property without wasting months?"</p>
-      <div class="svc-footer">
-        <span class="svc-price">€99</span>
-        <span class="svc-toggle">+</span>
-      </div>
-      <div class="svc-body">
-        <div class="svc-body-inner">
-          <p class="svc-desc">We do the searching so you don't have to. Three curated rounds of five properties each, refined after every round based on your feedback.</p>
-          <ul class="svc-list">
-            <li>In-depth questionnaire to map your exact needs</li>
-            <li>60-minute intro call to align on criteria</li>
-            <li>3 rounds of 5 shortlisted properties</li>
-            <li>Data breakdown per property: price/m², year built, condition, commute</li>
-            <li>Criteria refinement call after each round</li>
-            <li>Additional rounds at €100 each</li>
-          </ul>
-          <a class="svc-book" href="#contact">Book Scouting →</a>
+    <!-- TRUE PRICE -->
+    <div class="svc-card reveal" onclick="openSvc('trueprice')">
+      <div>
+        <div class="svc-card-top">
+          <span class="svc-tag tag-advisory">Advisory</span>
+          <span class="svc-arrow">↗</span>
         </div>
+        <div class="svc-name">True<br><em>Price.</em></div>
+        <p class="svc-tagline">Know what the property is really worth — and make an offer that protects you.</p>
       </div>
-    </div>
-
-    <div class="svc-card reveal reveal-delay-1" id="svc-price" onclick="toggleSvc('svc-price')">
-      <h3 class="svc-name">Price Evaluation</h3>
-      <p class="svc-question">"Is this property worth what they're asking?"</p>
-      <div class="svc-footer">
-        <span class="svc-price">€199</span>
-        <span class="svc-toggle">+</span>
-      </div>
-      <div class="svc-body">
-        <div class="svc-body-inner">
-          <p class="svc-desc">Never make an offer blind. We give you a fair value range and recommended offer price — with a walk-away ceiling.</p>
-          <ul class="svc-list">
-            <li>Fair value range and recommended offer price</li>
-            <li>Comparable sales analysis (3–5 recent properties)</li>
-            <li>Price per m² benchmark against the postcode</li>
-            <li>Condition adjustment for renovation needs</li>
-            <li>Hausgeld and hidden cost check for apartments</li>
-            <li>One-page written report with your verdict</li>
-          </ul>
-          <a class="svc-book" href="#contact">Book Price Evaluation →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="svc-card reveal reveal-delay-2" id="svc-diligence" onclick="toggleSvc('svc-diligence')">
-      <h3 class="svc-name">Due Diligence</h3>
-      <p class="svc-question">"Are there any hidden risks I should know about?"</p>
-      <div class="svc-footer">
+      <div class="svc-card-bottom">
         <span class="svc-price">€499</span>
-        <span class="svc-toggle">+</span>
-      </div>
-      <div class="svc-body">
-        <div class="svc-body-inner">
-          <p class="svc-desc">Do this when you're serious. We go through every document, flag every risk, and give you a clear go / no-go before you commit.</p>
-          <ul class="svc-list">
-            <li>Full Grundbuch (land registry) review</li>
-            <li>Teilungserklärung and Eigentümergemeinschaft documents</li>
-            <li>Check for outstanding debts, liens, or encumbrances</li>
-            <li>Review of minutes for upcoming special assessments</li>
-            <li>Energy certificate and building permit checks</li>
-            <li>Written risk summary with go / no-go recommendation</li>
-          </ul>
-          <a class="svc-book" href="#contact">Book Due Diligence →</a>
-        </div>
+        <span class="svc-cta-text">See what's included →</span>
       </div>
     </div>
 
-    <div class="svc-card reveal" id="svc-financing" onclick="toggleSvc('svc-financing')">
-      <h3 class="svc-name">Financing</h3>
-      <p class="svc-question">"Can I actually get a mortgage for this?"</p>
-      <div class="svc-footer">
-        <span class="svc-price">€199</span>
-        <span class="svc-toggle">+</span>
-      </div>
-      <div class="svc-body">
-        <div class="svc-body-inner">
-          <p class="svc-desc">We assess your mortgage readiness and connect you with trusted English-speaking brokers who understand the Indian expat profile.</p>
-          <ul class="svc-list">
-            <li>Review of your income, savings, and financial profile</li>
-            <li>Estimate of borrowing capacity based on German criteria</li>
-            <li>Introduction to 2–3 vetted English-speaking brokers</li>
-            <li>Guidance on documents German banks typically require</li>
-            <li>Clarity on what to expect from the application process</li>
-          </ul>
-          <a class="svc-book" href="#contact">Book Financing →</a>
+    <!-- SAATHI -->
+    <div class="svc-card featured reveal reveal-delay-1" onclick="openSvc('saathi')">
+      <div>
+        <div class="svc-card-top">
+          <span class="svc-tag tag-flagship">Flagship · End-to-end</span>
+          <span class="svc-arrow">↗</span>
         </div>
+        <div class="svc-name">Saathi<br><em>साथी</em></div>
+        <p class="svc-tagline">From first search to final signature — one trusted companion, every step handled.</p>
       </div>
-    </div>
-
-    <div class="svc-card reveal reveal-delay-1" id="svc-renovation" onclick="toggleSvc('svc-renovation')">
-      <h3 class="svc-name">Renovation Assistance</h3>
-      <p class="svc-question">"What will it cost to make this liveable?"</p>
-      <div class="svc-footer">
-        <span class="svc-price">€299</span>
-        <span class="svc-toggle">+</span>
-      </div>
-      <div class="svc-body">
-        <div class="svc-body-inner">
-          <p class="svc-desc">Know the real total cost before you commit. We identify what needs doing, what can wait, and give you a realistic budget.</p>
-          <ul class="svc-list">
-            <li>Immediate vs. future work identification</li>
-            <li>Must-have, should-have, nice-to-have priority list</li>
-            <li>Budget estimate by category (kitchen, bathroom, floors)</li>
-            <li>Rough timeline for works</li>
-            <li>Connections to trusted contractors if needed</li>
-          </ul>
-          <a class="svc-book" href="#contact">Book Renovation Assistance →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="svc-card reveal reveal-delay-2" id="svc-e2e" onclick="toggleSvc('svc-e2e')">
-      <h3 class="svc-name">End-to-End</h3>
-      <p class="svc-question">"Can someone handle everything from search to signature?"</p>
-      <div class="svc-footer">
+      <div class="svc-card-bottom">
         <span class="svc-price">€999</span>
-        <span class="svc-toggle">+</span>
-      </div>
-      <div class="svc-body">
-        <div class="svc-body-inner">
-          <p class="svc-desc">From first search to final signature — one point of contact, every step handled. Complete peace of mind.</p>
-          <ul class="svc-list">
-            <li>Everything in steps 01–05 included</li>
-            <li>Questionnaire, intro call & shortlisted properties</li>
-            <li>Price evaluation & financing assessment</li>
-            <li>Full due diligence on your chosen property</li>
-            <li>Notary coordination & contract review</li>
-            <li>Grundbuch transfer tracking & key handover</li>
-          </ul>
-          <a class="svc-book" href="#contact">Book End-to-End →</a>
-        </div>
+        <span class="svc-cta-text">See what's included →</span>
       </div>
     </div>
 
   </div>
 </section>
 
+<!-- SERVICE MODALS -->
+<div class="svc-modal-overlay" id="svcModal" onclick="closeSvcModal(event)">
+  <div class="svc-modal">
+    <button class="svc-modal-close" onclick="closeSvc()">×</button>
+    <div id="svcModalInner"></div>
+  </div>
+</div>
 
 <hr class="divider">
 
@@ -546,78 +428,39 @@ footer{
     <div class="reveal">
       <h3 style="color:#1a0008;font-family:'Fraunces',Georgia,serif;font-size:26px;font-weight:400;line-height:1.4;margin-bottom:20px;">We'll get back to you within 24 hours to discuss your situation and next steps.</h3>
       <p style="color:#4a2030;font-size:14px;line-height:1.8;margin-bottom:36px;">Whether you're just starting to explore or ready to make an offer, we're here to help at whatever stage you're at.</p>
-      <div class="contact-row">
-        <span class="contact-lbl">Email</span>
-        <span class="contact-val"><a href="mailto:info@animmobilien.de">info@animmobilien.de</a></span>
-      </div>
-      <div class="contact-row">
-        <span class="contact-lbl">Phone</span>
-        <span class="contact-val">+49 176 31400029</span>
-      </div>
-      <div class="contact-row">
-        <span class="contact-lbl">Based in</span>
-        <span class="contact-val">Berlin — serving all of Germany</span>
-      </div>
-      <div class="contact-row">
-        <span class="contact-lbl">Languages</span>
-        <span class="contact-val">English · Hindi</span>
-      </div>
-      <div class="contact-row">
-        <span class="contact-lbl">Instagram</span>
-        <span class="contact-val"><a href="https://www.instagram.com/a.n.immobilien/" target="_blank">@a.n.immobilien</a></span>
-      </div>
-      <div class="contact-row">
-        <span class="contact-lbl">WhatsApp</span>
-        <span class="contact-val"><a href="https://chat.whatsapp.com/GW1pf0uZFDU1aVs7rmQGB9?s=sh&p=i&mlu=1" target="_blank">Join our channel</a></span>
-      </div>
-      <div class="contact-row">
-        <span class="contact-lbl">Facebook</span>
-        <span class="contact-val"><a href="https://www.facebook.com/profile.php?id=61561377807870" target="_blank">A.N. Immobilien</a></span>
-      </div>
+      <div class="contact-row"><span class="contact-lbl">Email</span><span class="contact-val"><a href="mailto:info@animmobilien.de">info@animmobilien.de</a></span></div>
+      <div class="contact-row"><span class="contact-lbl">Phone</span><span class="contact-val">+49 176 31400029</span></div>
+      <div class="contact-row"><span class="contact-lbl">Based in</span><span class="contact-val">Berlin — serving all of Germany</span></div>
+      <div class="contact-row"><span class="contact-lbl">Languages</span><span class="contact-val">English · Hindi</span></div>
+      <div class="contact-row"><span class="contact-lbl">Instagram</span><span class="contact-val"><a href="https://www.instagram.com/a.n.immobilien/" target="_blank">@a.n.immobilien</a></span></div>
+      <div class="contact-row"><span class="contact-lbl">WhatsApp</span><span class="contact-val"><a href="https://chat.whatsapp.com/GW1pf0uZFDU1aVs7rmQGB9" target="_blank">Join our channel</a></span></div>
+      <div class="contact-row"><span class="contact-lbl">Facebook</span><span class="contact-val"><a href="https://www.facebook.com/profile.php?id=61561377807870" target="_blank">A.N. Immobilien</a></span></div>
     </div>
     <div class="reveal">
       <form id="contactForm">
         <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Full name</label>
-            <input type="text" class="form-input" placeholder="Name" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Email address</label>
-            <input type="email" class="form-input" placeholder="Email address" required>
-          </div>
+          <div class="form-group"><label class="form-label">Full name</label><input type="text" class="form-input" placeholder="Name" required></div>
+          <div class="form-group"><label class="form-label">Email address</label><input type="email" class="form-input" placeholder="Email address" required></div>
         </div>
         <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Phone number</label>
-            <input type="tel" class="form-input" placeholder="Phone number">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Your timeline</label>
+          <div class="form-group"><label class="form-label">Phone number</label><input type="tel" class="form-input" placeholder="Phone number"></div>
+          <div class="form-group"><label class="form-label">Your timeline</label>
             <select class="form-select" required>
               <option value="" disabled selected>Select timeline</option>
-              <option>Within 3 months</option>
-              <option>3–6 months</option>
-              <option>6–12 months</option>
-              <option>Just exploring</option>
+              <option>Within 3 months</option><option>3–6 months</option><option>6–12 months</option><option>Just exploring</option>
             </select>
           </div>
         </div>
         <div class="form-group">
           <label class="form-label">What do you need help with?</label>
           <div class="checkbox-grid">
-            <label class="check-item"><input type="checkbox" name="help" value="scouting"><span class="check-box"></span><span class="check-label">Scouting</span></label>
-            <label class="check-item"><input type="checkbox" name="help" value="price"><span class="check-box"></span><span class="check-label">Price evaluation</span></label>
-            <label class="check-item"><input type="checkbox" name="help" value="diligence"><span class="check-box"></span><span class="check-label">Due diligence</span></label>
-            <label class="check-item"><input type="checkbox" name="help" value="financing"><span class="check-box"></span><span class="check-label">Financing</span></label>
-            <label class="check-item"><input type="checkbox" name="help" value="renovation"><span class="check-box"></span><span class="check-label">Renovation assistance</span></label>
-            <label class="check-item"><input type="checkbox" name="help" value="e2e"><span class="check-box"></span><span class="check-label">End-to-end</span></label>
+            <label class="check-item"><input type="checkbox" name="help" value="trueprice"><span class="check-box"></span><span class="check-label">True Price</span></label>
+            <label class="check-item"><input type="checkbox" name="help" value="saathi"><span class="check-box"></span><span class="check-label">Saathi (End-to-end)</span></label>
+            <label class="check-item"><input type="checkbox" name="help" value="notsure"><span class="check-box"></span><span class="check-label">Not sure yet</span></label>
+            <label class="check-item"><input type="checkbox" name="help" value="other"><span class="check-box"></span><span class="check-label">Something else</span></label>
           </div>
         </div>
-        <div class="form-group">
-          <label class="form-label">Your situation</label>
-          <textarea class="form-textarea" placeholder="Budget range, preferred areas, any specific requirements..."></textarea>
-        </div>
+        <div class="form-group"><label class="form-label">Your situation</label><textarea class="form-textarea" placeholder="Budget range, preferred areas, where you are in the process..."></textarea></div>
         <div class="form-group">
           <label class="consent-item">
             <input type="checkbox" id="gdprConsent" required>
@@ -628,10 +471,7 @@ footer{
         <button type="submit" class="form-submit">Send message</button>
         <p class="form-note">We respond within 24 hours · No obligation · GDPR compliant</p>
       </form>
-      <div class="form-success" id="formSuccess">
-        <h3>Message received.</h3>
-        <p>We'll be in touch within 24 hours to discuss your property journey.</p>
-      </div>
+      <div class="form-success" id="formSuccess"><h3>Message received.</h3><p>We'll be in touch within 24 hours to discuss your property journey.</p></div>
     </div>
   </div>
 </section>
@@ -639,6 +479,7 @@ footer{
 <footer>
   <div class="footer-logo">A.N<span>.</span> Immobilien</div>
   <div class="footer-links">
+    <a href="#process">How it works</a>
     <a href="#services">Services</a>
     <a href="about.html">About</a>
     <a href="#contact">Contact</a>
@@ -653,21 +494,78 @@ footer{
 </footer>
 
 <script>
-// Scroll reveal
 const obs = new IntersectionObserver(entries => entries.forEach(e => {
   if(e.isIntersecting) e.target.classList.add('visible');
 }), {threshold: 0.08});
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// Service accordion
-function toggleSvc(id) {
-  const el = document.getElementById(id);
-  const isOpen = el.classList.contains('open');
-  document.querySelectorAll('.svc-card').forEach(s => s.classList.remove('open'));
-  if(!isOpen) el.classList.add('open');
+// Modal content
+const svcData = {
+  trueprice: {
+    tag: 'Advisory service',
+    name: 'True Price.',
+    price: '\u20ac499',
+    desc: 'You have found a property you like. The seller is asking a price. The Makler says it is fair. But the Makler works for the seller. Before you make an offer on a property worth hundreds of thousands of euros, you need an independent assessment from someone entirely on your side.',
+    items: [
+      'Market valuation using 3\u20135 comparable recent sales in the same postcode \u2014 not asking prices, actual completed transactions',
+      'Price per m\u00b2 benchmark against the district average, adjusted for floor, condition, energy rating, and year built',
+      'Grundbuch and WEG document review \u2014 we read every page and flag any risks, pending costs, or encumbrances before you commit',
+      'Recommended offer price and a clear walk-away ceiling \u2014 the number above which you should not go regardless of pressure',
+      'Written one-page report with our verdict and negotiation guidance',
+      'Support preparing your formal offer letter in German'
+    ],
+    note: 'True Price is for buyers who have already found a property and need a trusted second opinion before making an offer. If you are still searching, Saathi is the right service.',
+    cta: 'Book True Price'
+  },
+  saathi: {
+    tag: 'Flagship · End-to-end service',
+    name: 'Saathi \u0938\u093e\u0925\u0940',
+    price: '\u20ac999',
+    desc: 'When a German family buys property, they have a network. A parent who has done it before. A cousin in finance. A contact at the right bank. That network protects them at every step. Saathi is that network for you \u2014 from the first search to the day you receive your keys.',
+    items: [
+      'Property scouting \u2014 curated shortlists based on your exact criteria, no wasted weekends on wrong listings',
+      'True Price assessment on your chosen property \u2014 full market valuation and negotiation guidance',
+      'Complete due diligence \u2014 Grundbuch, WEG protocols, Teilungserkl\u00e4rung, energy certificate, all reviewed and explained',
+      'Mortgage readiness review \u2014 we assess your profile as a German bank would and introduce you to vetted English-speaking brokers',
+      'Renovation cost assessment \u2014 total cost of ownership before you sign, not after',
+      'Notary coordination and Kaufvertrag review \u2014 we stay with you through signing',
+      'Grundbuch transfer tracking until the property is legally yours',
+      'One point of contact throughout \u2014 English and Hindi spoken'
+    ],
+    note: 'Saathi covers the entire buying process from first search to key handover. You show up at the notary. We handle everything else.',
+    cta: 'Book Saathi'
+  }
+};
+
+function openSvc(id) {
+  const s = svcData[id];
+  const items = s.items.map(i => `<li>${i}</li>`).join('');
+  document.getElementById('svcModalInner').innerHTML = `
+    <div class="svc-modal-header">
+      <p class="svc-modal-tag">${s.tag}</p>
+      <h2 class="svc-modal-name">${s.name}</h2>
+      <p class="svc-modal-price">${s.price}</p>
+    </div>
+    <div class="svc-modal-body">
+      <p class="svc-modal-desc">${s.desc}</p>
+      <p class="svc-modal-section-title">What is included</p>
+      <ul class="svc-modal-list">${items}</ul>
+      <div class="svc-modal-included"><p>${s.note}</p></div>
+      <a href="#contact" class="svc-modal-cta" onclick="closeSvc()">${s.cta} →</a>
+    </div>`;
+  document.getElementById('svcModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 
-// Form
+function closeSvc() {
+  document.getElementById('svcModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeSvcModal(e) {
+  if(e.target === document.getElementById('svcModal')) closeSvc();
+}
+
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const consent = document.getElementById('gdprConsent');
@@ -698,342 +596,6 @@ document.getElementById('contactForm').addEventListener('submit', async function
   document.getElementById('formSuccess').classList.add('show');
 });
 
-
-const propData = {
-  "p001": {
-    "id": "P001",
-    "name": "3-Zimmer Wohnung Stephankiez (3.OG, unfurnished)",
-    "address": "Havelberger Str. 15, 3.OG links 08",
-    "district": "Moabit (Mitte)",
-    "postcode": "10559",
-    "price": "€435.500",
-    "price_m2": "€6.500/m²",
-    "hausgeld": "€406/mo",
-    "size": "67 m²",
-    "rooms": "3",
-    "bedrooms": "2",
-    "bathrooms": "1",
-    "floor": "3rd of 4",
-    "lift": "No",
-    "balcony": "Yes",
-    "garden": "No",
-    "parking": "No",
-    "cellar": "Yes",
-    "furnished": "No",
-    "year_built": "1965",
-    "renovated": "2020",
-    "condition": "Good",
-    "energy": "C",
-    "energy_kwh": "97.1 kWh/m²/yr",
-    "heating": "District heating",
-    "commission": "3.57%",
-    "sonderumlage": "Unknown",
-    "listed": "Furkes Investment GmbH",
-    "notes": "Refurbished 2020; old windows in this unit (~€11k to replace); building infrastructure renewed 2020-2025.",
-    "flags": "Old windows; no lift; 3rd floor of 4 (no elevator).",
-    "why": ""
-  },
-  "p002": {
-    "id": "P002",
-    "name": "Doppelhaushälfte Kaulsdorf an der Wuhle",
-    "address": "Lenbachstraße 27a",
-    "district": "Kaulsdorf (Marzahn-Hellersdorf)",
-    "postcode": "12621",
-    "price": "€499.000",
-    "price_m2": "€4.844/m²",
-    "hausgeld": "—",
-    "size": "103 m²",
-    "rooms": "4",
-    "bedrooms": "3",
-    "bathrooms": "2",
-    "floor": "Ground + 1 + Attic",
-    "lift": "No",
-    "balcony": "Yes (2 terraces)",
-    "garden": "Yes",
-    "parking": "Yes (1 space)",
-    "cellar": "Yes",
-    "furnished": "No",
-    "year_built": "1993",
-    "renovated": "Recent (bathroom)",
-    "condition": "Good",
-    "energy": "F",
-    "energy_kwh": "—",
-    "heating": "Oil heating",
-    "commission": "3.57%",
-    "sonderumlage": "Unknown",
-    "listed": "Furkes Investment GmbH",
-    "notes": "Well-maintained; 2 terraces; river-adjacent green plot; basement hobby room; recent bathroom renovation.",
-    "flags": "Energy class F (oil heating = future cost risk); no energy cert expiry listed; no Hausgeld data.",
-    "why": ""
-  },
-  "p003": {
-    "id": "P003",
-    "name": "3-Zimmer Wohnung Stephankiez (4.OG, möbliert)",
-    "address": "Havelberger Str. 15, 4.OG links 10",
-    "district": "Moabit (Mitte)",
-    "postcode": "10559",
-    "price": "€449.000",
-    "price_m2": "€6.701/m²",
-    "hausgeld": "€406/mo",
-    "size": "67 m²",
-    "rooms": "3",
-    "bedrooms": "2",
-    "bathrooms": "1",
-    "floor": "4th of 4 (top)",
-    "lift": "No",
-    "balcony": "Yes",
-    "garden": "No",
-    "parking": "No",
-    "cellar": "Yes",
-    "furnished": "Yes (full)",
-    "year_built": "1965",
-    "renovated": "2020",
-    "condition": "Good",
-    "energy": "C",
-    "energy_kwh": "97.1 kWh/m²/yr",
-    "heating": "District heating",
-    "commission": "3.57%",
-    "sonderumlage": "Unknown",
-    "listed": "Furkes Investment GmbH",
-    "notes": "Fully furnished; top floor (4th); same building as P001; building renewed 2020-2025; modern kitchen.",
-    "flags": "No lift; top floor (stairs only); windows vary by unit — check if this unit has new ones.",
-    "why": ""
-  },
-  "p004": {
-    "id": "P004",
-    "name": "Neubauwohnung Das Gotland, Prenzlauer Berg (1.OG)",
-    "address": "Gotlandstraße 10F, 1. OG",
-    "district": "Prenzlauer Berg (Pankow)",
-    "postcode": "10439",
-    "price": "€639.000",
-    "price_m2": "€7.589/m²",
-    "hausgeld": "€329/mo",
-    "size": "84.2 m²",
-    "rooms": "3",
-    "bedrooms": "2",
-    "bathrooms": "1",
-    "floor": "1st of 5",
-    "lift": "Yes",
-    "balcony": "Yes (west-facing courtyard)",
-    "garden": "No",
-    "parking": "No",
-    "cellar": "Yes",
-    "furnished": "No",
-    "year_built": "2018",
-    "renovated": "2018 (new build)",
-    "condition": "Excellent",
-    "energy": "C",
-    "energy_kwh": "77 kWh/m²/yr",
-    "heating": "Central (KWK regenerativ)",
-    "commission": "3.57%",
-    "sonderumlage": "Unknown",
-    "listed": "Furkes Investment GmbH",
-    "notes": "Neubau 2018; KfW 70 efficiency house; parquet floors; fitted kitchen included; underfloor heating; barrier-free access; quiet courtyard.",
-    "flags": "Only 1 bathroom; 1st floor (low); no parking; commission applies.",
-    "why": "Prenzlauer Berg Neubau at €7,589/m² is expensive but justified: KfW 70 energy standard means very low running costs; 2018 build eliminates near-term renovation risk; Prenzlauer Berg commands Berlin's most stable rental demand. For an Indian expat buyer wanting a hassle-free, high-quality first property in a safe A-location, this is the lowest-execution-risk option in the pipeline."
-  },
-  "p005": {
-    "id": "P005",
-    "name": "Terrassenwohnung Teichstr. 50 (EG, Gate Community)",
-    "address": "Teichstraße 50, EG",
-    "district": "Reinickendorf",
-    "postcode": "13407",
-    "price": "€585.000",
-    "price_m2": "€3.926/m²",
-    "hausgeld": "€562/mo",
-    "size": "149 m²",
-    "rooms": "3",
-    "bedrooms": "2",
-    "bathrooms": "2",
-    "floor": "Ground (EG)",
-    "lift": "Yes (2 lifts)",
-    "balcony": "Yes (50m² terrace)",
-    "garden": "No (park grounds)",
-    "parking": "Yes (1 outdoor)",
-    "cellar": "Yes",
-    "furnished": "Partial (kitchen + selected)",
-    "year_built": "1973",
-    "renovated": "2015",
-    "condition": "Good",
-    "energy": "B",
-    "energy_kwh": "—",
-    "heating": "District heating (Fernwärme KWK)",
-    "commission": "3.57%",
-    "sonderumlage": "Unknown",
-    "listed": "Savchenko & Bucatinschi Real Estate",
-    "notes": "50m² terrace accessible from all rooms; parquet under vinyl; network connections in all rooms; fibre-ready; video intercom; gate community on ~10,000m² grounds with sports facilities.",
-    "flags": "Ground floor (EG); 1973 build with partial reno only; high Hausgeld (€562/mo); Reinickendorf far from Mitte; vinyl over parquet — condition unknown.",
-    "why": "149m² for €585k (€3,926/m²) is exceptional value for Berlin — 40-50% below Prenzlauer Berg comparable. The 50m² private terrace is a rare asset class. Energy class B on Fernwärme already future-proofed against GEG heating law changes. Ideal for a family buyer prioritising space and outdoor living over postcode prestige."
-  },
-  "p006": {
-    "id": "P006",
-    "name": "Wohnung Holländerstraße 58, Wedding (3.OG)",
-    "address": "Holländerstraße 58, 3. OG",
-    "district": "Wedding (Mitte)",
-    "postcode": "13407",
-    "price": "€259.500",
-    "price_m2": "€3.792/m²",
-    "hausgeld": "€380/mo",
-    "size": "68.42 m²",
-    "rooms": "2",
-    "bedrooms": "1",
-    "bathrooms": "1",
-    "floor": "3rd of 5",
-    "lift": "Yes",
-    "balcony": "Yes (green view)",
-    "garden": "No",
-    "parking": "Yes (1 outdoor)",
-    "cellar": "Yes",
-    "furnished": "No",
-    "year_built": "1969",
-    "renovated": "—",
-    "condition": "Poor (needs full renovation)",
-    "energy": "D",
-    "energy_kwh": "120 kWh/m²/yr",
-    "heating": "Etagenheizung (Gas)",
-    "commission": "3.57%",
-    "sonderumlage": "Unknown",
-    "listed": "Bodenkontor Liegenschaften GmbH",
-    "notes": "Requires full renovation; sound-proof windows; separate kitchen layout; near Berlin TXL future development zone.",
-    "flags": "Sanierungsbedürftig — full renovation cost (~€80-120k) needed; Energy class D (gas heating); old kitchen; carpet/old flooring.",
-    "why": "At €259,500 this is the lowest entry price in the pipeline. Wedding is gentrifying fast; proximity to Berlin TXL means structural demand growth. Total all-in ~€380k after reno, still well below market rate for a renovated 68m² in Mitte. Strong buy for an investor or buyer comfortable managing a renovation project."
-  },
-  "p007": {
-    "id": "P007",
-    "name": "Altbauwohnung Güntzelkiez, Charlottenburg (1.OG)",
-    "address": "Holsteinische Straße 26, 1. OG",
-    "district": "Charlottenburg-Wilmersdorf",
-    "postcode": "10717",
-    "price": "€1.399.000",
-    "price_m2": "€7.248/m²",
-    "hausgeld": "€1.040/mo",
-    "size": "193 m²",
-    "rooms": "7",
-    "bedrooms": "5",
-    "bathrooms": "3",
-    "floor": "1st of 5",
-    "lift": "Yes",
-    "balcony": "Yes (loggia + balcony)",
-    "garden": "No",
-    "parking": "No",
-    "cellar": "Yes",
-    "furnished": "No",
-    "year_built": "1914",
-    "renovated": "2015",
-    "condition": "Good (saniert)",
-    "energy": "C",
-    "energy_kwh": "89.1 kWh/m²/yr",
-    "heating": "District heating (Fernwärme)",
-    "commission": "0% (no commission)",
-    "sonderumlage": "Unknown",
-    "listed": "Bodenkontor Liegenschaften GmbH",
-    "notes": "Two units merged physically but not in Grundbuch — separable with low effort; Altbau charm with high ceilings and stucco; herringbone parquet; modern fitted kitchen; 2 full baths + guest WC; Fernwärme plant updated 2021.",
-    "flags": "High Hausgeld (€1,040/mo); 1914 build — check for hidden Altbau costs; no parking; units legally separate (complication or opportunity).",
-    "why": "Commission-free at €1.399M in Güntzelkiez — one of Berlin's top 3 residential addresses. The two-unit Grundbuch structure means buyer gets a 193m² home today and retains the option to sell one unit separately later. Altbau in this kiez has outperformed Berlin average price growth every decade since reunification. Best option for a high-budget buyer seeking long-term capital preservation."
-  },
-  "p008": {
-    "id": "P008",
-    "name": "Baugrundstück Mövenstraße 2, Potsdam-Klein Glienicke",
-    "address": "Mövenstraße 2 (Flurstück 454)",
-    "district": "Klein Glienicke (Potsdam)",
-    "postcode": "14482",
-    "price": "€1.300.000",
-    "price_m2": "—",
-    "hausgeld": "—",
-    "size": "~1.000 m² plot",
-    "rooms": "—",
-    "bedrooms": "—",
-    "bathrooms": "—",
-    "floor": "—",
-    "lift": "—",
-    "balcony": "Planned",
-    "garden": "Yes",
-    "parking": "Yes (2 per unit, planned)",
-    "cellar": "Planned",
-    "furnished": "No",
-    "year_built": "—",
-    "renovated": "—",
-    "condition": "Land — undeveloped",
-    "energy": "—",
-    "energy_kwh": "—",
-    "heating": "—",
-    "commission": "3.57%",
-    "sonderumlage": "—",
-    "listed": "Bodenkontor Liegenschaften GmbH",
-    "notes": "~1,000m² plot in Klein Glienicke; Baugenehmigung granted for 2 Doppelhaushälften à ~200m²; can split into 2x ~500m² plots; villa neighbourhood near Havel; fully serviced.",
-    "flags": "Outside Berlin (Potsdam); construction cost on top (~€600-800k+ per DHH); total outlay per unit likely €1.5M+; commission applies.",
-    "why": "Baugenehmigung already granted — planning permission in Brandenburg typically takes 18-24 months. Klein Glienicke is Berlin's most exclusive suburban enclave; villa plots almost never come to market here. Buying and building delivers ~€400-500k in GDV uplift per half. Viable primarily as a developer play or bespoke family home project."
-  }
-};
-
-function openProp(id) {
-  const p = propData[id];
-  if(!p) return;
-  const why = p.why ? `<div class="prop-why-section"><h4>Why buy this</h4><p>${p.why}</p></div>` : '';
-  const flags = p.flags ? `<div class="prop-flags-section"><h4>⚠ Red flags</h4><p>${p.flags}</p></div>` : '';
-  const notes = p.notes ? `<div class="prop-notes-section"><h4>Condition notes</h4><p>${p.notes}</p></div>` : '';
-  document.getElementById('propModalInner').innerHTML = `
-    <div class="prop-modal-header">
-      <div class="prop-modal-id">${p.id}</div>
-      <h2 class="prop-modal-name">${p.name}</h2>
-      <p class="prop-modal-address">${p.address} · ${p.district} · ${p.postcode}</p>
-    </div>
-    <div class="prop-modal-body">
-      <div class="prop-modal-price">${p.price}</div>
-      <div class="prop-modal-price-m2">${p.price_m2} · Hausgeld: ${p.hausgeld}</div>
-      <div class="prop-modal-grid">
-        <div class="prop-modal-section">
-          <h4>Property details</h4>
-          <div class="prop-detail-row"><span class="prop-detail-lbl">Size</span><span class="prop-detail-val">${p.size}</span></div>
-          <div class="prop-detail-row"><span class="prop-detail-lbl">Rooms</span><span class="prop-detail-val">${p.rooms} (${p.bedrooms} bed, ${p.bathrooms} bath)</span></div>
-          <div class="prop-detail-row"><span class="prop-detail-lbl">Floor</span><span class="prop-detail-val">${p.floor}</span></div>
-          <div class="prop-detail-row"><span class="prop-detail-lbl">Lift</span><span class="prop-detail-val">${p.lift}</span></div>
-          <div class="prop-detail-row"><span class="prop-detail-lbl">Balcony</span><span class="prop-detail-val">${p.balcony}</span></div>
-          <div class="prop-detail-row"><span class="prop-detail-lbl">Garden</span><span class="prop-detail-val">${p.garden}</span></div>
-          <div class="prop-detail-row"><span class="prop-detail-lbl">Parking</span><span class="prop-detail-val">${p.parking}</span></div>
-          <div class="prop-detail-row"><span class="prop-detail-lbl">Cellar</span><span class="prop-detail-val">${p.cellar}</span></div>
-          <div class="prop-detail-row"><span class="prop-detail-lbl">Furnished</span><span class="prop-detail-val">${p.furnished}</span></div>
-        </div>
-        <div class="prop-modal-section">
-          <h4>Building & energy</h4>
-          <div class="prop-detail-row"><span class="prop-detail-lbl">Year built</span><span class="prop-detail-val">${p.year_built}</span></div>
-          <div class="prop-detail-row"><span class="prop-detail-lbl">Last renovated</span><span class="prop-detail-val">${p.renovated}</span></div>
-          <div class="prop-detail-row"><span class="prop-detail-lbl">Condition</span><span class="prop-detail-val">${p.condition}</span></div>
-          <div class="prop-detail-row"><span class="prop-detail-lbl">Energy rating</span><span class="prop-detail-val">${p.energy}</span></div>
-          <div class="prop-detail-row"><span class="prop-detail-lbl">Energy usage</span><span class="prop-detail-val">${p.energy_kwh}</span></div>
-          <div class="prop-detail-row"><span class="prop-detail-lbl">Heating</span><span class="prop-detail-val">${p.heating}</span></div>
-          <div class="prop-detail-row"><span class="prop-detail-lbl">Commission</span><span class="prop-detail-val">${p.commission}</span></div>
-          <div class="prop-detail-row"><span class="prop-detail-lbl">Sonderumlage</span><span class="prop-detail-val">${p.sonderumlage}</span></div>
-          <div class="prop-detail-row"><span class="prop-detail-lbl">Listed by</span><span class="prop-detail-val">${p.listed}</span></div>
-        </div>
-      </div>
-      ${notes}${flags}${why}
-      <a href="#contact" class="svc-book" onclick="closeProp()" style="margin-top:8px">Enquire about this property →</a>
-    </div>
-  `;
-  document.getElementById('propModal').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-
-function closeProp() {
-  document.getElementById('propModal').classList.remove('open');
-  document.body.style.overflow='';
-}
-
-function closePropModal(e) {
-  if(e.target === document.getElementById('propModal')) closeProp();
-}
-
-function filterProps(type) {
-  document.querySelectorAll('.prop-filter').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
-  document.querySelectorAll('.prop-card').forEach(card=>{
-    if(type==='all' || card.dataset.type===type) card.classList.remove('hidden');
-    else card.classList.add('hidden');
-  });
-}
-
-// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', function(e) {
     const t = document.querySelector(this.getAttribute('href'));
